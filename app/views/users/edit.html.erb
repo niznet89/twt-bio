@@ -1,10 +1,16 @@
-<% if logged_in? && current_user == @user %>
-  <h1>this is what happens when you're logged in</h1>
-  <h3>My Writing Entries</h3>
-  <% @mirror[:url].each_with_index do |element, index| %>
-    <a href=<%= element %>><%= @mirror[:title][index] %></a>
-    <br>
-  <% end %>
-<% else %>
-  <h2> this is what happens when you're not logged in</h2>
+<% content_for :head do %>
+  <%= javascript_pack_tag 'users_edit', 'data-turbolinks-track': 'reload', defer: true
+  %>
 <% end %>
+
+<p id="hidden" hidden><%= @user.eth_address %></p>
+<h1>this is what happens when you're logged in</h1>
+<h3>Writing Entries</h3>
+<% @mirror[:url].each_with_index do |element, index| %>
+  <a href=<%= element %>><%= @mirror[:title][index] %></a>
+  <br>
+<% end %>
+
+<h3>Digital Assets (NFT's)</h3>
+<div id="nfts">
+</div>

@@ -14,3 +14,4 @@ ActiveStorage.start()
 
 // import 'packs/users_new'
 // import 'packs/sessions_new'
+// import 'packs/moralis'

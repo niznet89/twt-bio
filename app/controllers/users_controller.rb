@@ -33,11 +33,13 @@ class UsersController < ApplicationController
   end
 
   def show
-    raise
+    @user = User.find(params[:id])
   end
 
   def edit
-    if logged_in?
+
+    @user = User.find_by(username: params[:id])
+    if logged_in? && @user.eth_address == session["eth_address"]
       @user = User.find(session[:user_id])
       @mirror = mirror_scraping(session[:eth_checksum])
 
