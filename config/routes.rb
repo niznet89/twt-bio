@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  post 'githubs/create', to: 'githubs#create', as: 'githubs'
   root to: 'users#new'
   get '/:id', to: 'users#show', as: 'user_show'
   resources :users
