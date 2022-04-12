@@ -33,7 +33,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.find_by(username: params[:id])
+
   end
 
   def edit
@@ -42,7 +43,7 @@ class UsersController < ApplicationController
     if logged_in? && @user.eth_address == session["eth_address"]
       @user = User.find(session[:user_id])
       @mirror = mirror_scraping(session[:eth_checksum])
-
+      @github = Github.new
     else
       redirect_to root_path, notice: "Please sign in or sign up with your Metamask wallet"
     end
@@ -56,20 +57,27 @@ class UsersController < ApplicationController
     uri_1 = URI.parse("https://mirror.xyz/#{eth_address}")
 
     response = Net::HTTP.get_response(uri_1)
-    final_url = "https://" + uri.host + response.body
+    if response.class != Net::HTTPNotFound
+      final_url = "https://" + uri.host + response.body
+      test = URI.parse(final_url)
+      raise
+      html_file = URI.open(final_url).read
+      html_doc = Nokogiri::HTML(html_file)
+      url_hash = { url: [], title: [] }
 
-    html_file = URI.open(final_url).read
-    html_doc = Nokogiri::HTML(html_file)
-    url_hash = { url: [], title: [] }
-
-    html_doc.search(".css-cts56n").each_with_index do |element, index|
-      url_hash[:url].append("https://mirror.xyz#{element.children[0].attributes["href"].value}")
-      url_hash[:title].append(html_doc.search(".css-1b1esvm").children[index].text)
+      html_doc.search(".css-cts56n").each_with_index do |element, index|
+        url_hash[:url].append("https://mirror.xyz#{element.children[0].attributes["href"].value}")
+        url_hash[:title].append(html_doc.search(".css-1b1esvm").children[index].text)
+      end
+      url_hash
     end
-    url_hash
+  end
+
+  def github_profile(username)
+
   end
 
   def user_params
-    params.require(:user).permit(:username, :eth_address)
+    params.require(:user).permit(:username, :eth_address, :eth_checksum)
   end
 end

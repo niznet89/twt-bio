@@ -5,12 +5,19 @@
 
 <p id="hidden" hidden><%= @user.eth_address %></p>
 <h1>this is what happens when you're logged in</h1>
-<h3>Writing Entries</h3>
-<% @mirror[:url].each_with_index do |element, index| %>
-  <a href=<%= element %>><%= @mirror[:title][index] %></a>
-  <br>
+<% if @mirror %>
+  <h3>Writing Entries</h3>
+  <% @mirror[:url].each_with_index do |element, index| %>
+    <a href=<%= element %>><%= @mirror[:title][index] %></a>
+    <br>
+  <% end %>
 <% end %>
 
 <h3>Digital Assets (NFT's)</h3>
 <div id="nfts">
 </div>
+
+<%= simple_form_for(@github) do |f| %>
+  <%= f.input :project %>
+  <%= f.input :url, input_html: {readonly: :true} %>
+<% end %>

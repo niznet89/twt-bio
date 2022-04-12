@@ -5,6 +5,7 @@
 <%= simple_form_for(@user) do |f| %>
   <%= f.input :username %>
   <%= f.input :eth_address %>
+  <%= f.input :eth_checksum %>
 <% end %>
 <button class="btn btn-primary">Sign-up with Ethereum</button>
 

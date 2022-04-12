@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_25_123553) do
+ActiveRecord::Schema.define(version: 2022_04_12_144512) do
+
+  create_table "githubs", force: :cascade do |t|
+    t.string "project"
+    t.string "url"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_githubs_on_user_id"
+  end
 
   create_table "sessions", force: :cascade do |t|
     t.string "eth_message"
@@ -26,6 +35,8 @@ ActiveRecord::Schema.define(version: 2022_03_25_123553) do
     t.string "eth_nonce"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "eth_checksum"
   end
 
+  add_foreign_key "githubs", "users"
 end
