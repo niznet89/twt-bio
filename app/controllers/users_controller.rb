@@ -60,7 +60,7 @@ class UsersController < ApplicationController
     if response.class != Net::HTTPNotFound
       final_url = "https://" + uri.host + response.body
       test = URI.parse(final_url)
-      raise
+
       html_file = URI.open(final_url).read
       html_doc = Nokogiri::HTML(html_file)
       url_hash = { url: [], title: [] }

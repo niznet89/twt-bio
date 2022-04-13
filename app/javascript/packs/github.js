@@ -16,14 +16,13 @@ button.addEventListener('click', async () => {
   })
   .then((response) => response.json())
   .then((json) => json.forEach(element => {
-    document.getElementById("projects").outerHTML = `<div class="card">
+    document.getElementById("projects").insertAdjacentHTML('beforeend', `<div class="card">
     <div class="card-header">
-      <h5 class="card-title">${element.name}</h5>
+      <h5 class="card-title"><a href="${element.html_url}">${element.name}</a></h5>
     </div>
     <div class="card-body">
-      <h5 class="card-title">Special title treatment</h5>
       <p class="card-text">${element.description || ""}</p>
     </div>
-  </div>`
+  </div>`)
   }))
 })
