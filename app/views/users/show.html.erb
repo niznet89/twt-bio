@@ -1,4 +1,33 @@
-test
-test
-test
-test
+<% content_for :head do %>
+  <%= javascript_pack_tag 'users_edit', 'data-turbolinks-track': 'reload', defer: true
+  %>
+  <%= javascript_pack_tag 'github', 'data-turbolinks-track': 'reload', defer: true
+  %>
+<% end %>
+
+<h1>Welcome to <%= @user.username%>'s page!</h1>
+
+<p id="hidden" hidden><%= @user.eth_address %></p>
+<% if @mirror %>
+  <h3>Writing Entries</h3>
+  <% @mirror[:url].each_with_index do |element, index| %>
+    <a href=<%= element %>><%= @mirror[:title][index] %></a>
+    <br>
+  <% end %>
+<% end %>
+
+<h3>Digital Assets (NFT's)</h3>
+  <div id="nfts">
+  </div>
+
+<div>
+  <%= form_with url: "/search", method: :get do |form| %>
+    <%= form.label :query, "Input Github profile" %>
+    <%= form.text_field :query %>
+  <% end %>
+  <button class="btn btn-primary">Search</button>
+</div>
+
+<h3>Projects</h3>
+  <div id="projects">
+  </div>

@@ -34,7 +34,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by(username: params[:id])
-
+    @user = User.find(session[:user_id])
+    @mirror = mirror_scraping(session[:eth_checksum])
   end
 
   def edit
