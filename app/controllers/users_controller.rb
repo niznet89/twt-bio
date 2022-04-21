@@ -36,6 +36,7 @@ class UsersController < ApplicationController
     @user = User.find_by(username: params[:id])
     @user = User.find(session[:user_id])
     @mirror = mirror_scraping(session[:eth_checksum])
+    @widget = Widget.find_by(user_id: @user.id)
   end
 
   def edit
@@ -45,6 +46,8 @@ class UsersController < ApplicationController
       @user = User.find(session[:user_id])
       @mirror = mirror_scraping(session[:eth_checksum])
       @github = Github.new
+      @widget = Widget.find_by(user_id: @user.id)
+
     else
       redirect_to root_path, notice: "Please sign in or sign up with your Metamask wallet"
     end
