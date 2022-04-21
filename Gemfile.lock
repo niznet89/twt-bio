@@ -105,6 +105,7 @@ GEM
       rake
     globalid (1.0.0)
       activesupport (>= 5.0)
+    htmlentities (4.3.4)
     i18n (1.10.0)
       concurrent-ruby (~> 1.0)
     ipaddr (1.2.4)
@@ -128,11 +129,20 @@ GEM
     mini_portile2 (2.8.0)
     minitest (5.15.0)
     msgpack (1.4.5)
+    multi_json (1.15.0)
+    mustache (1.1.1)
     nio4r (2.5.8)
     nokogiri (1.13.3-arm64-darwin)
       racc (~> 1.4)
     nokogiri (1.13.3-x86_64-linux)
       racc (~> 1.4)
+    onebox (2.2.19)
+      addressable (~> 2.8.0)
+      htmlentities (~> 4.3)
+      multi_json (~> 1.11)
+      mustache
+      nokogiri (~> 1.7)
+      sanitize
     open-uri (0.2.0)
       stringio
       time
@@ -188,6 +198,9 @@ GEM
     regexp_parser (2.2.1)
     rexml (3.2.5)
     rubyzip (2.3.2)
+    sanitize (6.0.0)
+      crass (~> 1.0.2)
+      nokogiri (>= 1.12.0)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
     sassc (2.4.0)
@@ -258,6 +271,7 @@ DEPENDENCIES
   eth
   jbuilder (~> 2.7)
   listen (~> 3.3)
+  onebox (~> 2.2, >= 2.2.19)
   open-uri
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)

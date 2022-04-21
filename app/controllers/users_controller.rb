@@ -2,8 +2,10 @@ require 'eth'
 require "open-uri"
 require "nokogiri"
 require 'net/http'
+require "onebox"
 
 class UsersController < ApplicationController
+  helper_method :onebox_preview
 
   def new
     @user = User.new
@@ -45,12 +47,18 @@ class UsersController < ApplicationController
     if logged_in? && @user.eth_address == session["eth_address"]
       @user = User.find(session[:user_id])
       @mirror = mirror_scraping(session[:eth_checksum])
-      @github = Github.new
+      @project = Project.new
       @widget = Widget.find_by(user_id: @user.id)
+      url = "https://mirror.xyz/tenzinr.eth"
+      @preview = Onebox.preview(url)
 
     else
       redirect_to root_path, notice: "Please sign in or sign up with your Metamask wallet"
     end
+  end
+
+  def onebox_preview(url)
+    Onebox.preview(url)
   end
 
   private
@@ -75,10 +83,6 @@ class UsersController < ApplicationController
       end
       url_hash
     end
-  end
-
-  def github_profile(username)
-
   end
 
   def user_params

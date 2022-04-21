@@ -17,6 +17,13 @@
   <%= f.submit "Submit", class: "btn btn-success" %>
 <% end %>
 
+<p>Create a project</p>
+<%= simple_form_for(@project) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :url %>
+  <%= f.submit "Submit", class: "btn btn-success" %>
+<% end %>
 <hr>
 
  <% if @widget.mirror %>
@@ -47,4 +54,18 @@
   <h3>Projects</h3>
     <div id="projects">
     </div>
+
+
+  <% @user.projects.each do |project|%>
+    <div class="card">
+      <div class="card-header">
+        <h5><%= project.name %></h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text"><%= project.description %></p>
+        <%= raw onebox_preview(project.url) %>
+      </div>
+    </div>
+  <% end %>
 <% end %>
+<%= raw @preview.to_s %>

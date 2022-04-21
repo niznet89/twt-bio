@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  post 'githubs/create', to: 'githubs#create', as: 'githubs'
   root to: 'users#new'
   get '/:id', to: 'users#show', as: 'user_show'
   resources :users
+  resources :projects, only: [:create]
   resources :sessions, only: [:new, :create]
   resources :widgets
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
