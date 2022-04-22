@@ -26,9 +26,9 @@ gem 'pg'
 
 gem 'simple_form', github: 'heartcombo/simple_form'
 
-gem "eth"
-
 gem 'open-uri'
+
+gem "eth"
 
 gem 'dotenv-rails', groups: [:development, :test]
 
