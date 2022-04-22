@@ -24,11 +24,13 @@ gem 'jbuilder', '~> 2.7'
 
 gem 'simple_form', github: 'heartcombo/simple_form'
 
-gem "eth"
-
 gem 'open-uri'
 
+gem "eth"
+
 gem 'dotenv-rails', groups: [:development, :test]
+
+gem 'onebox', '~> 2.2', '>= 2.2.19'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
