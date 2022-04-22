@@ -1,28 +1,27 @@
-
-//import { ENV } from 'env.js';
-// import ENV from './env.js.erb';
+// Originally we used the Moralis API (moralis.io) to gather NFTs directly associated with the public address.
+// For now, we're using OpenSea's API. The hope would be to move to something more robust as OpenSea will be used for MVP stage
+// It is rate-limited so if we get to any sort of scale we'll have to change providers or get an API key
 
 // Grab the ETH public address from Edit page
+const { toChecksumAddress } = require('ethereum-checksum-address')
+
 const publicAddress = document.getElementById('hidden').innerHTML;
 
-const url = `https://deep-index.moralis.io/api/v2/${publicAddress}/nft?chain=eth&format=decimal`;
-console.log(publicAddress);
+const url = `https://api.opensea.io/api/v1/assets?owner=${toChecksumAddress(publicAddress)}&order_direction=desc&limit=20&include_orders=false`;
+console.log(toChecksumAddress(publicAddress));
 
 fetch(url, {
   method: 'GET',
   headers: {
-    'Accept': 'application/json',
-    'X-API-Key': "pgLPCDVnxJQ3oglH8pfLv45Wabjn8Uui03dDCwZxRS9fdhkzA3jPkA6ECS6As7xd"
+    'Accept': 'application/json'
   },
   })
   .then((response) => response.json())
-  .then((json) => fetch(json.result[0].token_uri, {
-      method: 'GET'
-    })
-    .then((response) => response.json() )
-    .then((json) => document.getElementById("nfts").outerHTML = `<div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="${json.image_url}" alt="Card image cap">
+  .then((json) => json.assets.forEach(nft => {
+    document.getElementById("nfts").insertAdjacentHTML('beforeend', `<div class="card" style="width: 18rem;">
+    <img class="card-img-top" src="${nft.image_url}" alt="Card image cap">
     <div class="card-body">
-      <p class="card-text">${json.description}</p>
+      <p class="card-text">${nft.description}</p>
     </div>
-  </div>`) );
+  </div>`)
+  }) );
