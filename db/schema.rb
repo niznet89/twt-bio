@@ -12,10 +12,13 @@
 
 ActiveRecord::Schema.define(version: 2022_04_21_155705) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "projects", force: :cascade do |t|
     t.string "name"
     t.string "url"
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "description"
@@ -43,7 +46,7 @@ ActiveRecord::Schema.define(version: 2022_04_21_155705) do
     t.boolean "mirror"
     t.boolean "nfts"
     t.boolean "projects"
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_widgets_on_user_id"
