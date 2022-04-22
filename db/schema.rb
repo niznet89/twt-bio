@@ -15,9 +15,9 @@ ActiveRecord::Schema.define(version: 2022_04_20_171242) do
   create_table "githubs", force: :cascade do |t|
     t.string "project"
     t.string "url"
+    t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "user_id"
     t.index ["user_id"], name: "index_githubs_on_user_id"
   end
 
