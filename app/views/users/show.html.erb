@@ -10,16 +10,6 @@
 <p id="hidden" hidden><%= @user.eth_address %></p>
 
 
-<% if @widget.mirror %>
-  <% if @mirror %>
-    <h3>Writing Entries</h3>
-    <% @mirror[:url].each_with_index do |element, index| %>
-      <a href=<%= element %>><%= @mirror[:title][index] %></a>
-      <br>
-    <% end %>
-  <% end %>
-<% end %>
-
 <% if @widget.nfts%>
   <h3>Digital Assets (NFT's)</h3>
     <div id="nfts">
@@ -38,4 +28,17 @@
   <h3>Projects</h3>
     <div id="projects">
     </div>
+
+
+  <% @user.projects.each do |project|%>
+    <div class="card">
+      <div class="card-header">
+        <h5><%= project.name %></h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text"><%= project.description %></p>
+        <%= raw onebox_preview(project.url) %>
+      </div>
+    </div>
+  <% end %>
 <% end %>

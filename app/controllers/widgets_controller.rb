@@ -5,7 +5,6 @@ class WidgetsController < ApplicationController
     @user = User.find(@widget.user_id)
     @widget.update(widget_params)
     redirect_to edit_user_path(@user)
-
   end
 
   def widget_params

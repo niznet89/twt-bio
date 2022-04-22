@@ -10,15 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_20_171242) do
+ActiveRecord::Schema.define(version: 2022_04_21_155705) do
 
-  create_table "githubs", force: :cascade do |t|
-    t.string "project"
+  create_table "projects", force: :cascade do |t|
+    t.string "name"
     t.string "url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
-    t.index ["user_id"], name: "index_githubs_on_user_id"
+    t.string "description"
+    t.index ["user_id"], name: "index_projects_on_user_id"
   end
 
   create_table "sessions", force: :cascade do |t|
@@ -48,6 +49,6 @@ ActiveRecord::Schema.define(version: 2022_04_20_171242) do
     t.index ["user_id"], name: "index_widgets_on_user_id"
   end
 
-  add_foreign_key "githubs", "users"
+  add_foreign_key "projects", "users"
   add_foreign_key "widgets", "users"
 end
