@@ -41,6 +41,17 @@ class UsersController < ApplicationController
     @widget = Widget.find_by(user_id: @user.id)
   end
 
+  def update
+    @user = current_user
+    if params[:user]
+      @user.photo = user_params[:photo]
+      @user.save
+      redirect_to edit_user_path(@user), notice: "Your profile picture was succesfully updated!"
+    else
+      redirect_to edit_user_path(@user), alert: "Please input image."
+    end
+  end
+
   def edit
 
     @user = User.find_by(username: params[:id])
@@ -86,6 +97,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:username, :eth_address, :eth_checksum)
+    params.require(:user).permit(:username, :eth_address, :eth_checksum, :photo)
   end
 end
