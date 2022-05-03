@@ -10,6 +10,12 @@
 
 <p>Select which widgets you would like to include in your profile below</p>
 
+<%= profile_photo(@user)%>
+<%= simple_form_for(@user) do |f| %>
+  <%= f.input :photo, as: :file, required: true %>
+  <%= f.submit "Change profile photo", class: "btn btn-primary w-100" %>
+<% end %>
+
 <%= simple_form_for(@widget) do |f| %>
   <%= f.input :mirror %>
   <%= f.input :nfts %>

@@ -3,6 +3,7 @@ class User < ApplicationRecord
   validates :eth_nonce, presence: true, uniqueness: true
   validates :username, presence: true, uniqueness: true
   has_many :projects, dependent: :destroy
+  has_one_attached :photo
   # After a User model is generated, create a Widget Model.
   after_create :create_widget
   def to_param
