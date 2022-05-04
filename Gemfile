@@ -5,8 +5,8 @@ ruby '3.0.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.5'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3', '~> 1.4'
+# Use sqlite3 as the database for Active Record --- sqlite3 added to dev group as Heroku doesn't support it
+
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
 # Use SCSS for stylesheets
@@ -22,13 +22,19 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-gem 'simple_form', github: 'heartcombo/simple_form'
+gem 'pg'
 
-gem "eth"
+gem 'simple_form', github: 'heartcombo/simple_form'
 
 gem 'open-uri'
 
+gem "eth"
+
 gem 'dotenv-rails', groups: [:development, :test]
+
+gem 'onebox', '~> 2.2', '>= 2.2.19'
+
+gem 'cloudinary', '~> 1.16.0'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
@@ -50,6 +56,7 @@ group :development do
   gem 'listen', '~> 3.3'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  # gem 'sqlite3', '~> 1.4'
 end
 
 group :test do

@@ -15,15 +15,16 @@ async function getUuidByAccount(account) {
   return uuid;
 }
 
+
 // the button to connect to an ethereum wallet
-const buttonEthConnect = document.querySelector('button.btn');
+const buttonEthConnect = document.querySelector('button#connect-wallet');
 // the read-only eth fields, we process them automatically
 const formInputEthMessage = document.querySelector('input#session_eth_message');
 const formInputEthAddress = document.querySelector('input#session_eth_address');
 const formInputEthSignature = document.querySelector('input#session_eth_signature');
 // get the new session form for submission later
 const formNewSession = document.querySelector('form#new_session');
-
+console.log(buttonEthConnect)
 // CheckSum test -- pass to rails/backend so this can be used to scrape from Mirror
 const getChecksumAddress = async () => {
   const address = await ethereum.request({ method: 'eth_requestAccounts' });

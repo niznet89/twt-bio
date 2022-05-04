@@ -2,11 +2,18 @@ require 'eth'
 require "open-uri"
 require "nokogiri"
 require 'net/http'
+require "onebox"
 
 class UsersController < ApplicationController
+  helper_method :onebox_preview
 
   def new
     @user = User.new
+    @session = Session.new
+  end
+
+  def homepage
+    @session = Session.new
   end
 
   def create
@@ -39,18 +46,35 @@ class UsersController < ApplicationController
     @widget = Widget.find_by(user_id: @user.id)
   end
 
+  def update
+    @user = current_user
+    if params[:user]
+      @user.photo = user_params[:photo]
+      @user.save
+      redirect_to edit_user_path(@user), notice: "Your profile picture was succesfully updated!"
+    else
+      redirect_to edit_user_path(@user), alert: "Please input image."
+    end
+  end
+
   def edit
 
     @user = User.find_by(username: params[:id])
     if logged_in? && @user.eth_address == session["eth_address"]
       @user = User.find(session[:user_id])
       @mirror = mirror_scraping(session[:eth_checksum])
-      @github = Github.new
+      @project = Project.new
       @widget = Widget.find_by(user_id: @user.id)
+      url = "https://mirror.xyz/tenzinr.eth"
+      @preview = Onebox.preview(url)
 
     else
       redirect_to root_path, notice: "Please sign in or sign up with your Metamask wallet"
     end
+  end
+
+  def onebox_preview(url)
+    Onebox.preview(url)
   end
 
   private
@@ -77,11 +101,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def github_profile(username)
-
-  end
-
   def user_params
-    params.require(:user).permit(:username, :eth_address, :eth_checksum)
+    params.require(:user).permit(:username, :eth_address, :eth_checksum, :photo)
   end
 end

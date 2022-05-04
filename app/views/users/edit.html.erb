@@ -5,11 +5,22 @@
   %>
 <% end %>
 
+<!-- Link to view profiel -->
+<a href="<%= user_show_path(@user) %>" class="btn btn-info btn-lg active" role="button" aria-pressed="true">View your profile</a>
+
 <p id="hidden" hidden><%= @user.eth_address %></p>
 <h1>Welcome to your profile <%= @user.username %></h1>
 
 <p>Select which widgets you would like to include in your profile below</p>
 
+<!-- User can upload new image, or use the default -->
+<%= profile_photo(@user)%>
+<%= simple_form_for(@user) do |f| %>
+  <%= f.input :photo, as: :file, required: true %>
+  <%= f.submit "Change profile photo", class: "btn btn-primary w-100" %>
+<% end %>
+
+<!-- User chooses which Widgets are shown on profile page. State is maintained in DB. -->
 <%= simple_form_for(@widget) do |f| %>
   <%= f.input :mirror %>
   <%= f.input :nfts %>
@@ -17,6 +28,14 @@
   <%= f.submit "Submit", class: "btn btn-success" %>
 <% end %>
 
+<!-- Projects are seperate objects, unlike Widgets which come grouped together -->
+<p>Create a project</p>
+<%= simple_form_for(@project) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :url %>
+  <%= f.submit "Submit", class: "btn btn-success" %>
+<% end %>
 <hr>
 
  <% if @widget.mirror %>
@@ -47,4 +66,18 @@
   <h3>Projects</h3>
     <div id="projects">
     </div>
+
+
+  <% @user.projects.each do |project|%>
+    <div class="card">
+      <div class="card-header">
+        <h5><%= project.name %></h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text"><%= project.description %></p>
+        <%= raw onebox_preview(project.url) %>
+      </div>
+    </div>
+  <% end %>
 <% end %>
+<%= raw @preview.to_s %>
