@@ -53,7 +53,8 @@ class UsersController < ApplicationController
       @user.save
       redirect_to edit_user_path(@user), notice: "Your profile picture was succesfully updated!"
     else
-      redirect_to edit_user_path(@user), alert: "Please input image."
+
+      render :edit
     end
   end
 
