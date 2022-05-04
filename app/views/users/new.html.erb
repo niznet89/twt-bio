@@ -1,5 +1,6 @@
 <% content_for :head do %>
   <%= javascript_pack_tag 'users_new', 'data-turbolinks-track': 'reload', defer: true %>
+  <%= javascript_pack_tag "sessions_new", defer: true %>
 <% end %>
 
 <%= simple_form_for(@user) do |f| %>
@@ -8,5 +9,3 @@
   <%= f.input :eth_checksum %>
 <% end %>
 <button class="btn btn-primary">Sign-up with Ethereum</button>
-
-<a class="btn btn-primary" href=<%= new_session_path %>>Sign-in</a>

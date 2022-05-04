@@ -9,6 +9,11 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    @session = Session.new
+  end
+
+  def homepage
+    @session = Session.new
   end
 
   def create
