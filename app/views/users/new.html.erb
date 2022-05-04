@@ -9,13 +9,3 @@
   <%= f.input :eth_checksum %>
 <% end %>
 <button class="btn btn-primary">Sign-up with Ethereum</button>
-
-<a class="btn btn-primary" href=<%= new_session_path %>>Sign-in</a>
-
-<%= simple_form_for(@session) do |f| %>
-  <%= f.input :eth_message, wrapper_html: {hidden: :true} %>
-  <%= f.input :eth_address, wrapper_html: {hidden: :true} %>
-  <%= f.input :eth_signature, wrapper_html: {hidden: :true} %>
-<% end %>
-<button class="btn btn-primary">Login with Ethereum</button>
-<%= javascript_pack_tag "sessions_new", defer: true %>

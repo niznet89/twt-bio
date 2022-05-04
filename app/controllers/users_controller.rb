@@ -12,6 +12,10 @@ class UsersController < ApplicationController
     @session = Session.new
   end
 
+  def homepage
+    @session = Session.new
+  end
+
   def create
     @user = User.new(user_params)
     # only proceed with pretty names

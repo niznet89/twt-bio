@@ -5,7 +5,6 @@ class SessionsController < ApplicationController
 
   def new
     @session = Session.new
-    raise
   end
 
   def create

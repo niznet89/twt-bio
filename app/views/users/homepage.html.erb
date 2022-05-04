@@ -1,0 +1,18 @@
+<% content_for :head do %>
+  <%= javascript_pack_tag "sessions_new", defer: true %>
+<% end %>
+
+<div class="input-group mb-3">
+  <input type="text" class="form-control" placeholder="Reserve your m00nlink.xyz/username" aria-label="Reserve" aria-describedby="basic-addon2">
+  <div class="input-group-append">
+    <a href="<%= new_user_path %>" class="btn btn-primary" role="button" aria-pressed="true">Sign-up w/ Metamask</a>
+  </div>
+</div>
+
+<%= simple_form_for(@session) do |f| %>
+  <%= f.input :eth_message, wrapper_html: {hidden: :true} %>
+  <%= f.input :eth_address, wrapper_html: {hidden: :true} %>
+  <%= f.input :eth_signature, wrapper_html: {hidden: :true} %>
+<% end %>
+<button class="btn btn-primary" id="connect-wallet">Login / Connect wallet</button>
+<%= javascript_pack_tag "sessions_new", defer: true %>

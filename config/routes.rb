@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'users#new'
+  root to: 'users#homepage'
   get '/:id', to: 'users#show', as: 'user_show'
   resources :users
   resources :projects, only: [:create]
