@@ -2,12 +2,15 @@
   <%= javascript_pack_tag "sessions_new", defer: true %>
 <% end %>
 
+
 <div class="input-group mb-3">
   <input type="text" class="form-control" placeholder="Reserve your m00nlink.xyz/username" aria-label="Reserve" aria-describedby="basic-addon2">
   <div class="input-group-append">
     <a href="<%= new_user_path %>" class="btn btn-primary" role="button" aria-pressed="true">Sign-up w/ Metamask</a>
   </div>
 </div>
+
+<p>M00nlink is the landing page for your Web3 identity. Showcase your Digital Assets, writing and projects in one easy to share link.</p>
 
 <%= simple_form_for(@session) do |f| %>
   <%= f.input :eth_message, wrapper_html: {hidden: :true} %>
@@ -16,3 +19,15 @@
 <% end %>
 <button class="btn btn-primary" id="connect-wallet">Login / Connect wallet</button>
 <%= javascript_pack_tag "sessions_new", defer: true %>
+
+
+<h2>Set up your customized profile in three easy steps</h2>
+
+<ol>
+<li><h4>Sign up with your Wallet</h4>
+  <p>Connect your Metamast wallet via the sign-up form and provide a username. This will provide you with a unique m00nlink.xyz/username -- example: m00nlink.xyz/tenzin</p></li>
+<li><h4>Edit & customize</h4>
+  <p>Choose which components you would like added to your profile page. Some Widgets like Digital Assets will automatically pull in all assets tied to your public address. Other links like projects can be created with user inputted links & descriptions.</p></li>
+<li><h4>Promote yourself to the Web3 community</h4>
+  <p>M00nlink is designed to be easy to share! Copy + paste your link in your favorite social platform so the community gets a sense of who you are and what you've done in one click.</p></li>
+</ol>
