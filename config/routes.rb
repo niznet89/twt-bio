@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root to: 'users#homepage'
   get '/:id', to: 'users#show', as: 'user_show'
   resources :users
+  resources :socials, only: [:update]
   resources :projects, only: [:create]
   resources :sessions, only: [:new, :create]
   resources :widgets

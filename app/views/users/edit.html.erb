@@ -20,6 +20,37 @@
   <%= f.submit "Change profile photo", class: "btn btn-primary w-100" %>
 <% end %>
 
+<div class="social-links">
+  <% if @social.instagram  %>
+    <i class="fa-brands fa-instagram-square"></i>
+    <% raise %>
+  <% end %>
+  <% if @social.github %>
+    <i class="fa-brands fa-github-square"></i>
+  <% end %>
+  <% if @social.tiktok %>
+    <i class="fa-brands fa-tiktok-square"></i>
+  <% end %>
+  <% if @social.instagram %>
+    <i class="fa-brands fa-facebook-square"></i>
+  <% end %>
+  <% if @social.medium %>
+    <i class="fa-brands fa-medium-square"></i>
+  <% end %>
+</div>
+
+<!-- User can determine which socials they'd like on their profile page, when they input a url the icon will show -->
+<%= simple_form_for(@social) do |f| %>
+  <%= f.input :instagram %>
+  <%= f.input :github %>
+  <%= f.input :tiktok %>
+  <%= f.input :facebook %>
+  <%= f.input :medium %>
+  <%= f.submit "Submit", class: "btn btn-success" %>
+<% end %>
+
+<hr>
+
 <!-- User chooses which Widgets are shown on profile page. State is maintained in DB. -->
 <%= simple_form_for(@widget) do |f| %>
   <%= f.input :mirror %>
@@ -28,16 +59,24 @@
   <%= f.submit "Submit", class: "btn btn-success" %>
 <% end %>
 
-<!-- Projects are seperate objects, unlike Widgets which come grouped together -->
-<p>Create a project</p>
-<%= simple_form_for(@project) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :description %>
-  <%= f.input :url %>
-  <%= f.submit "Submit", class: "btn btn-success" %>
-<% end %>
 <hr>
 
+<!-- Projects are seperate objects, unlike Widgets which come grouped together -->
+
+<% if @widget.projects %>
+  <p>Create a project</p>
+  <%= simple_form_for(@project) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :url %>
+    <%= f.submit "Submit", class: "btn btn-success" %>
+  <% end %>
+<% end %>
+
+
+<hr>
+
+<!-- IF the user selects on/true for the respective Widget. It will show in Edit & Profile page -->
  <% if @widget.mirror %>
   <% if @mirror %>
     <h3>Writing Entries</h3>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_03_115219) do
+ActiveRecord::Schema.define(version: 2022_05_05_104625) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,6 +61,18 @@ ActiveRecord::Schema.define(version: 2022_05_03_115219) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "socials", force: :cascade do |t|
+    t.string "instagram"
+    t.string "github"
+    t.string "tiktok"
+    t.string "medium"
+    t.string "facebook"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_socials_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "eth_address"
@@ -83,5 +95,6 @@ ActiveRecord::Schema.define(version: 2022_05_03_115219) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "projects", "users"
+  add_foreign_key "socials", "users"
   add_foreign_key "widgets", "users"
 end

@@ -53,8 +53,7 @@ class UsersController < ApplicationController
       @user.save
       redirect_to edit_user_path(@user), notice: "Your profile picture was succesfully updated!"
     else
-
-      render :edit
+      redirect_to edit_user_path(@user), notice: "Please include an image."
     end
   end
 
@@ -66,6 +65,7 @@ class UsersController < ApplicationController
       @mirror = mirror_scraping(session[:eth_checksum])
       @project = Project.new
       @widget = Widget.find_by(user_id: @user.id)
+      @social = Social.find_by(user_id: @user.id)
       url = "https://mirror.xyz/tenzinr.eth"
       @preview = Onebox.preview(url)
 
