@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>LandingPage</title>
+    <title>MoonLink</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,9 +11,20 @@
   </head>
   <body>
     <%= render 'shared/navbar' %>
-    <div class="container my-5">
-        <%= yield %>
+    <div class="container mt-5">
+        <div class="main-content">
+      <div class="row">
+          <div class="col-lg-6 col-md-6 col-sm-12">
+            <h1>Create account</h1>
+            <p>Add your photo, name, and Ethereum wallet information via Metamask so you can get started.</p>
+            <%= yield %>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-12">
+            <%= image_tag "profile_phone_placeholder.png", alt: "profile-placeholder", width:500 %>
+          </div>
+        </div>
+      </div>
     </div>
-        <%= render 'shared/footer' %>
+    <%= render 'shared/footer' %>
   </body>
 </html>

@@ -8,6 +8,28 @@
   flex-grow: 0;
 }
 
+.navbar-brand {
+  align-items: center;
+}
 .navbar-lewagon .navbar-brand img {
-  width: 40px;
+  width: 100px;
+}
+
+.logo-text {
+  padding-left: 10px;
+  color: white;
+  font-weight: bold;
+  letter-spacing: 3px;
+}
+
+.navbar-nav {
+  align-items: center;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: white;
+
+  &:hover {
+    color: gainsboro;
+  }
 }
