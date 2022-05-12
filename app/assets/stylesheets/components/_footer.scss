@@ -36,6 +36,12 @@
   justify-content: space-between;
   padding: 0px 50px;
   color: $white;
+  background:url('footer-image.png');
+  opacity: 0.9;
+  background-position: bottom;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 500px;
 }
 
 .footer-links {
@@ -68,4 +74,8 @@
 
 .small {
   width: 50px;
+}
+
+.border {
+  border-bottom: 5px solid $pink-primary;
 }

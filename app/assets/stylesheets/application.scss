@@ -22,9 +22,9 @@ body {
   max-width: 4000px;
 }
 
-.main-content {
-  height: 100vh
-}
+// .main-content {
+//   height: 100vh
+// }
 
 .page-container {
   position: relative;
@@ -33,6 +33,11 @@ body {
 
 #content-wrap {
   padding-bottom: 2.5rem;    /* Footer height */
+}
+
+img {
+  max-width: 100%;
+  height: auto;
 }
 
 // .btn-primary {
