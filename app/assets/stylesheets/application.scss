@@ -14,7 +14,7 @@
 
 body {
   // background: white;
-  background:url('background.png');
+  background:url('background_nomoon.png');
   background-size: cover;
   background-position: top;
   background-repeat: no-repeat;
@@ -36,8 +36,9 @@ body {
 }
 
 img {
-  max-width: 100%;
+  max-width: 80%;
   height: auto;
+  float:right;
 }
 
 // .btn-primary {

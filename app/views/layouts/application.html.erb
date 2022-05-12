@@ -11,15 +11,15 @@
   </head>
   <body>
     <%= render 'shared/navbar' %>
-    <div class="container mt-5">
+    <div class="container">
         <div class="main-content">
       <div class="row">
-          <div class="col-lg-6 col-md-12 col-sm-12 mt-3">
+          <div class="col-lg-6 col-md-12 col-sm-12 my-5">
             <h1>Create account</h1>
             <p>Add your photo, name, and Ethereum wallet information via Metamask so you can get started.</p>
             <%= yield %>
           </div>
-          <div class="col-lg-6 col-md-12 col-sm-12 mt-3">
+          <div class="col-lg-6 col-md-12 col-sm-12 my-5">
             <%= image_tag "profile_phone_placeholder.png", alt: "profile-placeholder" %>
           </div>
         </div>
