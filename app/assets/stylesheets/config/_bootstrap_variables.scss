@@ -20,7 +20,10 @@ $warning:    $orange;
 // Buttons & inputs' radius
 $color:          $white;
 $border-radius:    15px;
-$border-radius-lg: 15px;
+$border-radius-lg: 25px;
 $border-radius-sm: 15px;
 
 // Override other variables below!
+
+$input-btn-padding-y:         1rem !default;
+$input-btn-padding-x:         2rem !default;
