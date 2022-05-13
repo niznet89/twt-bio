@@ -82,12 +82,22 @@ class UsersController < ApplicationController
 
   def mirror_scraping(username)
     eth_address = username
-    uri = URI.parse("https://mirror.xyz/0x36781B49A5E29C46c161acF5A42dFea57975e00A")
+    uri = URI.parse("https://mirror.xyz/0x76AA1C6Ca91f05201A2B270423Be455B5F6316E0")
     uri_1 = URI.parse("https://mirror.xyz/#{eth_address}")
 
     response = Net::HTTP.get_response(uri_1)
+
+    if response.class == Net::HTTPPermanentRedirect
+
+    end
+
     if response.class != Net::HTTPNotFound
-      final_url = "https://" + uri.host + response.body
+      if response.class == Net::HTTPPermanentRedirect
+        final_url = "https://" + uri.host + response.body
+      else
+        final_url = "https://mirror.xyz/#{eth_address}"
+      end
+
       test = URI.parse(final_url)
 
       html_file = URI.open(final_url).read
