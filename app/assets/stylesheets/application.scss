@@ -5,11 +5,11 @@
 
 // External libraries
 @import "bootstrap/scss/bootstrap";
-<<<<<<< HEAD
 // @import "font-awesome-sprockets";
 // @import "font-awesome";
 
 // Your CSS partials
+@import "style";
 @import "components/index";
 @import "pages/index";
 
@@ -57,6 +57,3 @@ img {
 //   }
 
 // }
-=======
-@import "style";
->>>>>>> master
