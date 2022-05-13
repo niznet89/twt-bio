@@ -7,9 +7,11 @@
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
+    <script src="https://kit.fontawesome.com/178a109485.js" crossorigin="anonymous"></script>
     <%= yield :head %>
   </head>
   <body>
+<<<<<<< HEAD
     <%= render 'shared/navbar' %>
     <div class="container">
         <div class="main-content">
@@ -26,5 +28,14 @@
       </div>
     </div>
     <%= render 'shared/footer' %>
+=======
+      <%= render 'shared/navbar' %>
+  <div class="container">
+  <div class="hero">
+    <h1>Content block made to go to the 🚀</h1>
+  </div>
+    <%= yield %>
+    </div>
+>>>>>>> master
   </body>
 </html>

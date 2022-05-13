@@ -9,6 +9,11 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    @session = Session.new
+  end
+
+  def homepage
+    @session = Session.new
   end
 
   def create
@@ -41,6 +46,17 @@ class UsersController < ApplicationController
     @widget = Widget.find_by(user_id: @user.id)
   end
 
+  def update
+    @user = current_user
+    if params[:user]
+      @user.photo = user_params[:photo]
+      @user.save
+      redirect_to edit_user_path(@user), notice: "Your profile picture was succesfully updated!"
+    else
+      redirect_to edit_user_path(@user), notice: "Please include an image."
+    end
+  end
+
   def edit
 
     @user = User.find_by(username: params[:id])
@@ -49,6 +65,7 @@ class UsersController < ApplicationController
       @mirror = mirror_scraping(session[:eth_checksum])
       @project = Project.new
       @widget = Widget.find_by(user_id: @user.id)
+      @social = Social.find_by(user_id: @user.id)
       url = "https://mirror.xyz/tenzinr.eth"
       @preview = Onebox.preview(url)
 
@@ -86,6 +103,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:username, :eth_address, :eth_checksum)
+    params.require(:user).permit(:username, :eth_address, :eth_checksum, :photo)
   end
 end
