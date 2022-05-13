@@ -1,3 +1,59 @@
-// app/assets/stylesheets/application.scss
+// Graphical variables
+@import "config/fonts";
+@import "config/colors";
+@import "config/bootstrap_variables";
+
+// External libraries
 @import "bootstrap/scss/bootstrap";
+// @import "font-awesome-sprockets";
+// @import "font-awesome";
+
+// Your CSS partials
 @import "style";
+@import "components/index";
+@import "pages/index";
+
+body {
+  // background: white;
+  background:url('background_nomoon.png');
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+  color: white;
+  max-width: 4000px;
+}
+
+// .main-content {
+//   height: 100vh
+// }
+
+.page-container {
+  position: relative;
+  // min-height: 100vh;
+}
+
+#content-wrap {
+  padding-bottom: 2.5rem;    /* Footer height */
+}
+
+img {
+  max-width: 80%;
+  height: auto;
+  float:right;
+}
+
+// .btn-primary {
+//   // background: $pink-primary;
+//   // border-radius: 14px;
+//   padding: 15px 25px;
+//   border: $pink-primary;
+
+//   &:hover {
+//     background: $pink-hover;
+//   }
+
+//   &:active {
+//     background: $pink-active;
+//   }
+
+// }
