@@ -21,11 +21,11 @@ body {
   // background: white;
   background:url('background_nomoon.png');
   background-size: cover;
-  background-position: top;
+  background-position: bottom;
   background-repeat: no-repeat;
   color: white;
   max-width: 4000px;
-  z-index: 0;
+  z-index: -2;
 }
 
 
