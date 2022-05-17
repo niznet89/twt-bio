@@ -1,33 +1,58 @@
 <% content_for :head do %>
   <%= javascript_pack_tag "sessions_new", defer: true %>
 <% end %>
-
-
-<div class="input-group mb-3">
-  <input type="text" class="form-control" placeholder="Reserve your m00nlink.xyz/username" aria-label="Reserve" aria-describedby="basic-addon2" disabled="disabled">
-  <div class="input-group-append">
-    <a href="<%= new_user_path %>" class="btn btn-primary" role="button" aria-pressed="true">Sign-up w/ Metamask</a>
+<div class="section hero">
+  <div class="intro center text-center">
+    <div class="col-md-12">
+      <h1>Content made to go to the moon</h1>
+      <p>M00nlink is the landing page for your Web3 identity. Showcase your Digital Assets, writing and projects in one easy to share link.</p>
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Reserve your m00nlink.xyz/username" aria-label="Reserve" aria-describedby="button-addon2" disabled="disabled">
+        <a href="<%= new_user_path %>" class="btn btn-outline-secondary" role="button" aria-pressed="true">Sign-up w/ Metamask</a>
+      </div>
+    </div>
+    <%# <%= simple_form_for(@session) do |f| %>
+      <%# <%= f.input :eth_message, wrapper_html: {hidden: :true} %>
+      <%# <%= f.input :eth_address, wrapper_html: {hidden: :true} %>
+      <%# <%= f.input :eth_signature, wrapper_html: {hidden: :true} %>
+      <%# <% end %>
+      <%# <button class="btn btn-primary" id="connect-wallet">Login / Connect wallet</button> %>
+      <%# <%= javascript_pack_tag "sessions_new", defer: true %>
+    </div>
   </div>
 </div>
-
-<p>M00nlink is the landing page for your Web3 identity. Showcase your Digital Assets, writing and projects in one easy to share link.</p>
-
-<%= simple_form_for(@session) do |f| %>
-  <%= f.input :eth_message, wrapper_html: {hidden: :true} %>
-  <%= f.input :eth_address, wrapper_html: {hidden: :true} %>
-  <%= f.input :eth_signature, wrapper_html: {hidden: :true} %>
-<% end %>
-<button class="btn btn-primary" id="connect-wallet">Login / Connect wallet</button>
-<%= javascript_pack_tag "sessions_new", defer: true %>
-
-
-<h2>Set up your customized profile in three easy steps</h2>
-
-<ol>
-<li><h4>Sign up with your Wallet</h4>
-  <p>Connect your Metamast wallet via the sign-up form and provide a username. This will provide you with a unique m00nlink.xyz/username -- example: m00nlink.xyz/tenzin</p></li>
-<li><h4>Edit & customize</h4>
-  <p>Choose which components you would like added to your profile page. Some Widgets like Digital Assets will automatically pull in all assets tied to your public address. Other links like projects can be created with user inputted links & descriptions.</p></li>
-<li><h4>Promote yourself to the Web3 community</h4>
-  <p>M00nlink is designed to be easy to share! Copy + paste your link in your favorite social platform so the community gets a sense of who you are and what you've done in one click.</p></li>
-</ol>
+<div class="container">
+  <div class="row text-center">
+    <h2 class="my-5">Set up your customized profile in three easy steps</h2>
+    <div class="col-sm-12 col-md-4 mb-3">
+      <div class="card">
+        <div class="card-body">
+          <a href="#"><i class="fa-solid fa-wallet fa-2x pb-3" aria-hidden="true"></i></a>
+          <h5 class="card-title">Sign up with your Wallet</h5>
+          <p class="card-text">Connect your Metamask wallet via the sign-up form by reserving your username. This will provide you with a unique m00nlink.xyz/username that you can then use to promote your web3 content. Example: m00nlink.xyz/tenzin</p>
+          <a href="#" class="card-link">Card link</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-4 mb-3">
+      <div class="card">
+        <div class="card-body">
+          <a href="#"><i class="fa-solid fa-pen-to-square fa-2x pb-3" aria-hidden="true"></i></a>
+          <h5 class="card-title">Edit &amp; customize</h5>
+          <p class="card-text">Choose which components you would like added to your profile page. Some Widgets like Digital Assets will automatically pull in all assets tied to your public address. Other links like projects can be created with user inputted links &amp; descriptions.</p>
+          <a href="#" class="card-link">Card link</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-4 mb-3">
+      <div class="card">
+        <div class="card-body">
+          <a href="#"><i class="fa-solid fa-users-rectangle fa-2x pb-3" aria-hidden="true"></i></a>
+          <h5 class="card-title">Promote yourself to the Web3 community</h5>
+          <p class="card-text">M00nlink is designed to be easy to share. Simply copy and paste your customized URL to your favorite social platform so the community gets a sense of who you are and what you've done in one click.</p>
+          <a href="#" class="card-link">Card link</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

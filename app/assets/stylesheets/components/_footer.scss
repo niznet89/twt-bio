@@ -33,15 +33,17 @@
 .footer {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  // justify-content: space-between;
   padding: 0px 50px;
   color: $white;
   background:url('footer-image.png');
-  opacity: 0.9;
+  opacity: 0.8;
   background-position: bottom;
   background-size: cover;
   background-repeat: no-repeat;
-  height: 500px;
+  height: 600px;
+  position: static;
+  bottom: 0;
 
   h4 {
     letter-spacing: 3px;

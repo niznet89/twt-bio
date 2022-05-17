@@ -1,1 +1,40 @@
 // Specific CSS for your home-page
+.hero {
+  background:url('moon_background.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  width: 100vw;
+  height: 75vh;
+  z-index: -1;
+}
+
+
+
+section {
+  width: 100%;
+  padding: 0 7%;
+  display: table;
+  margin: 0;
+  max-width: none;
+  height: 100vh;
+
+  .intro {
+    height: 90vh;
+  }
+}
+.content {
+  display: table-cell;
+  vertical-align: middle;
+  position: relative;
+}
+
+.center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
