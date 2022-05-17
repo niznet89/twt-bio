@@ -6,9 +6,14 @@
     <div class="col-md-12">
       <h1>Content made to go to the moon</h1>
       <p>M00nlink is the landing page for your Web3 identity. Showcase your Digital Assets, writing and projects in one easy to share link.</p>
-      <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="Reserve your m00nlink.xyz/username" aria-label="Reserve" aria-describedby="button-addon2" disabled="disabled">
-        <a href="<%= new_user_path %>" class="btn btn-outline-secondary" role="button" aria-pressed="true">Sign-up w/ Metamask</a>
+      <div class="d-grid gap-2">
+        <a href="<%= new_user_path %>" class="btn btn-outline-secondary d-sm-block d-md-none px-4" role="button" aria-pressed="true">Sign-up w/ Metamask</a>
+      </div>
+      <div class="d-sm-none d-md-block">
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Reserve your m00nlink.xyz/username" aria-label="Reserve" aria-describedby="button-addon2" disabled="disabled">
+          <a href="<%= new_user_path %>" class="btn btn-outline-secondary" role="button" aria-pressed="true">Sign-up w/ Metamask</a>
+        </div>
       </div>
     </div>
     <%# <%= simple_form_for(@session) do |f| %>
