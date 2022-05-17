@@ -38,3 +38,16 @@ section {
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
+
+.card-body {
+  padding: 2.5rem 2.5rem;
+
+  a {
+    color: white;
+    text-decoration: none;
+  }
+
+  .fa-solid {
+    color: $pink-primary
+  }
+}
