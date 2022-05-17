@@ -43,7 +43,12 @@ section {
   padding: 2.5rem 2.5rem;
 
   a {
-    color: white;
+    color: $white;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: $pink-primary;
     text-decoration: none;
   }
 
