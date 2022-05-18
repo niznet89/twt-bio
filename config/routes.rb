@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'users#homepage'
+  root to: 'users#home'
   get '/:id', to: 'users#show', as: 'user_show'
   resources :users
   resources :socials, only: [:update]

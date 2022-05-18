@@ -13,19 +13,21 @@
 @import "components/index";
 @import "pages/index";
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   // background: white;
   background:url('background_nomoon.png');
   background-size: cover;
-  background-position: top;
+  background-position: bottom;
   background-repeat: no-repeat;
   color: white;
   max-width: 4000px;
+  z-index: -2;
 }
 
-// .main-content {
-//   height: 100vh
-// }
 
 .page-container {
   position: relative;
@@ -41,19 +43,3 @@ img {
   height: auto;
   float:right;
 }
-
-// .btn-primary {
-//   // background: $pink-primary;
-//   // border-radius: 14px;
-//   padding: 15px 25px;
-//   border: $pink-primary;
-
-//   &:hover {
-//     background: $pink-hover;
-//   }
-
-//   &:active {
-//     background: $pink-active;
-//   }
-
-// }

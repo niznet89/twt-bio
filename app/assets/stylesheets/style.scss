@@ -1,15 +1,24 @@
-body {
-  min-height: 100%;
-  background-image: url("https://images.unsplash.com/photo-1519810755548-39cd217da494?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3388&q=80");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-  height: 2000px;
+ // No media query necessary for xs breakpoint as it's effectively `@media (max-width: 0) { ... }`
+@include media-breakpoint-down(sm) {
+
+button.small {
+  display: none;
 }
 
-.hero {
-  height: 75vh;
-  text-align: center;
-  align-items: center;
-  padding: 300px 0;
-}
+ }
+@include media-breakpoint-down(md) {
+
+ }
+@include media-breakpoint-down(lg) {
+
+
+
+ }
+@include media-breakpoint-down(xl) {
+
+
+ }
+@include media-breakpoint-down(xxl) {
+
+
+ }

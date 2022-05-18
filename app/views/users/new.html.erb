@@ -2,10 +2,20 @@
   <%= javascript_pack_tag 'users_new', 'data-turbolinks-track': 'reload', defer: true %>
   <%= javascript_pack_tag "sessions_new", defer: true %>
 <% end %>
-
-<%= simple_form_for(@user) do |f| %>
-  <%= f.input :username %>
-  <%= f.input :eth_address %>
-  <%= f.input :eth_checksum %>
-<% end %>
-<button class="btn btn-primary">Sign-up with Ethereum</button>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6 col-md-12 col-sm-12 my-5">
+      <h1>Create account</h1>
+      <p>Add your photo, name, and Ethereum wallet information via Metamask so you can get started.</p>
+      <%= simple_form_for(@user) do |f| %>
+        <%= f.input :username %>
+        <%# <%= f.input :eth_address %>
+        <%# <%= f.input :eth_checksum %>
+      <% end %>
+      <button class="btn btn-primary">Sign-up with Ethereum</button>
+    </div>
+    <div class="col-lg-6 col-md-12 col-sm-12 my-5">
+      <%= image_tag "profile_phone_placeholder.png", alt: "profile-placeholder" %>
+    </div>
+  </div>
+</div>
