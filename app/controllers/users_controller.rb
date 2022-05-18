@@ -66,7 +66,7 @@ class UsersController < ApplicationController
       @project = Project.new
       @widget = Widget.find_by(user_id: @user.id)
       @social = Social.find_by(user_id: @user.id)
-      url = "https://mirror.xyz/tenzinr.eth"
+      url = "https://mirror.xyz/tenzinr.eth/3hK0WRbuJI5CoxQfyEhlBdWLRFYUXaM-VOYGjo7_qOA"
       @preview = Onebox.preview(url)
 
     else
