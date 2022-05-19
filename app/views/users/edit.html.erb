@@ -1,8 +1,6 @@
 <% content_for :head do %>
   <%= javascript_pack_tag 'users_edit', 'data-turbolinks-track': 'reload', defer: true
   %>
-  <%= javascript_pack_tag 'github', 'data-turbolinks-track': 'reload', defer: true
-  %>
 <% end %>
 
 <!-- Link to view profiel -->
@@ -106,13 +104,6 @@
     </div>
 <% end %>
 
-<div>
-  <%= form_with url: "/search", method: :get do |form| %>
-    <%= form.label :query, "Input Github profile" %>
-    <%= form.text_field :query %>
-  <% end %>
-  <button class="btn btn-primary">Search</button>
-</div>
 
 <% if @widget.projects %>
   <h3>Projects</h3>
