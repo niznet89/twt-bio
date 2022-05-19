@@ -8,8 +8,15 @@
       <ul class="navbar-nav me-auto">
         <li class="nav-item">
           <%# <%= link_to "Login", "#", id="", class: "btn btn-primary" %>
-          <button class="btn btn-primary" id="connect-wallet">Login</button>
+          <%# <button class="btn btn-primary" id="connect-wallet">Login</button>
                 <%= javascript_pack_tag "sessions_new", defer: true %>
+          <%# <%= simple_form_for(@session) do |f| %>
+          <%#  <%= f.input :eth_message, wrapper_html: {hidden: :true} %>
+          <%#  <%= f.input :eth_address, wrapper_html: {hidden: :true} %>
+          <%#  <%= f.input :eth_signature, wrapper_html: {hidden: :true} %>
+         <%# <% end %>
+           <button class="btn btn-primary" id="connect-wallet">Login / Connect wallet</button>
+           <%= javascript_pack_tag "sessions_new", defer: true %>
         </li>
       </ul>
     </div>
