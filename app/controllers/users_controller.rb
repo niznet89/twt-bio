@@ -44,6 +44,7 @@ class UsersController < ApplicationController
     @user = User.find(session[:user_id])
     @mirror = mirror_scraping(session[:eth_checksum])
     @widget = Widget.find_by(user_id: @user.id)
+    @session = Session.new
   end
 
   def update
