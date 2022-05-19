@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     @session = Session.new
   end
 
-  def homepage
+  def home
     @session = Session.new
   end
 
@@ -61,6 +61,7 @@ class UsersController < ApplicationController
 
     @user = User.find_by(username: params[:id])
     if logged_in? && @user.eth_address == session["eth_address"]
+      @session = Session.new
       @user = User.find(session[:user_id])
       @mirror = mirror_scraping(session[:eth_checksum])
       @project = Project.new
