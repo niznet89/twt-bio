@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     @session = Session.new
   end
 
-  def homepage
+  def home
     @session = Session.new
   end
 
@@ -44,6 +44,7 @@ class UsersController < ApplicationController
     @user = User.find(session[:user_id])
     @mirror = mirror_scraping(session[:eth_checksum])
     @widget = Widget.find_by(user_id: @user.id)
+    @session = Session.new
   end
 
   def update
@@ -61,12 +62,13 @@ class UsersController < ApplicationController
 
     @user = User.find_by(username: params[:id])
     if logged_in? && @user.eth_address == session["eth_address"]
+      @session = Session.new
       @user = User.find(session[:user_id])
       @mirror = mirror_scraping(session[:eth_checksum])
       @project = Project.new
       @widget = Widget.find_by(user_id: @user.id)
       @social = Social.find_by(user_id: @user.id)
-      url = "https://mirror.xyz/tenzinr.eth"
+      url = "https://mirror.xyz/tenzinr.eth/3hK0WRbuJI5CoxQfyEhlBdWLRFYUXaM-VOYGjo7_qOA"
       @preview = Onebox.preview(url)
 
     else
