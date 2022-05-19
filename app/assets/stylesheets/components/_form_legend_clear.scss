@@ -8,3 +8,9 @@
 legend ~ div.form-check:first-of-type {
   clear: left;
 }
+
+.form-control:valid {
+  color: $dark-text;
+  background-color:  $dark;
+  border: 1px solid $dark;
+}

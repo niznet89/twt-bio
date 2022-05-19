@@ -10,7 +10,7 @@
       <!-- User can upload new image, or use the default -->
       <%= profile_photo(@user)%>
       <%= simple_form_for(@user) do |f| %>
-        <%= f.input :photo, as: :file, required: true %>
+        <%= f.input :photo, as: :file, required: true, label: false %>
         <%= f.submit "Change profile photo", class: "btn btn-primary w-100" %>
       <% end %>
             <hr>
@@ -22,34 +22,34 @@
         <%= f.input :tiktok %>
         <%= f.input :facebook %>
         <%= f.input :medium %>
-        <%= f.submit "Submit", class: "btn btn-success" %>
+        <%= f.submit "Submit", class: "btn btn-outline-secondary btn-lg w-100" %>
       <% end %>
      <!-- Will display the Social links that the user inputted as part of the Socials form -->
       <hr>
-      <div class="social-links">
+      <div class="social-links d-flex justify-content-center">
         <% if @social.instagram != ""  %>
           <a href="<%=@social.instagram %>">
-            <i class="fa-brands fa-instagram-square fa-3x"></i>
+            <i class="fa-brands fa-instagram-square fa-3x p-2"></i>
           </a>
         <% end %>
         <% if @social.github != "" %>
           <a href="<%=@social.github %>">
-            <i class="fa-brands fa-github-square fa-3x"></i>
+            <i class="fa-brands fa-github-square fa-3x p-2"></i>
           </a>
         <% end %>
         <% if @social.tiktok != "" %>
           <a href="<%=@social.tiktok %>">
-            <i class="fa-brands fa-tiktok-square fa-3x"></i>
+            <i class="fa-brands fa-tiktok-square fa-3x p-2"></i>
           </a>
         <% end %>
         <% if @social.facebook != "" %>
           <a href="<%=@social.facebook %>">
-            <i class="fa-brands fa-facebook-square fa-3x"></i>
+            <i class="fa-brands fa-facebook-square fa-3x p-2"></i>
           </a>
         <% end %>
         <% if @social.medium != "" %>
           <a href="<%=@social.medium %>">
-            <i class="fa-brands fa-medium-square fa-3x"></i>
+            <i class="fa-brands fa-medium-square fa-3x p-2"></i>
           </a>
         <% end %>
       </div>
@@ -59,7 +59,7 @@
         <%= f.input :mirror %>
         <%= f.input :nfts %>
         <%= f.input :projects %>
-        <%= f.submit "Submit", class: "btn btn-success" %>
+        <%= f.submit "Submit", class: "btn btn-outline-secondary btn-lg w-100" %>
       <% end %>
       <hr>
       <!-- Projects are seperate objects, unlike Widgets which come grouped together -->
@@ -69,7 +69,7 @@
           <%= f.input :name %>
           <%= f.input :description %>
           <%= f.input :url %>
-          <%= f.submit "Submit", class: "btn btn-success" %>
+          <%= f.submit "Submit", class: "btn btn-outline-secondary btn-lg w-100" %>
         <% end %>
       <% end %>
       <!-- IF the user selects on/true for the respective Widget. It will show in Edit & Profile page -->
