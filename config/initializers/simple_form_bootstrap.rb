@@ -16,7 +16,7 @@ SimpleForm.setup do |config|
   config.button_class = 'btn'
 
   # Define the default class of the input wrapper of the boolean input.
-  config.boolean_label_class = 'form-check-label'
+  config.boolean_label_class = 'form-checkbox-label'
 
   # How the label text should be generated altogether with the required text.
   config.label_text = lambda { |label, required, explicit_label| "#{label} #{required}" }
