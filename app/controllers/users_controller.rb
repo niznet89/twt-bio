@@ -44,10 +44,15 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by(username: params[:id])
-    @user = User.find(session[:user_id])
-    @mirror = mirror_scraping(session[:eth_checksum])
-    @widget = Widget.find_by(user_id: @user.id)
-    @session = Session.new
+    # @user = User.find(session[:user_id])
+    if @user
+      @mirror = mirror_scraping(session[:eth_checksum])
+      @widget = Widget.find_by(user_id: @user.id)
+      @session = Session.new
+    else
+      render :file => "#{Rails.root}/public/404.html", layout: false, status: :not_found
+    end
+
   end
 
   def update
