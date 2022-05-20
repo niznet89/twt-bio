@@ -18,7 +18,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-
+    @session = Session.new
     # only proceed with pretty names
 
     if @user && @user.username && @user.username.size > 0
