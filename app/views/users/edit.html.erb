@@ -29,27 +29,27 @@
       <div class="social-links d-flex justify-content-center">
         <% if @social.instagram != ""  %>
           <a href="<%=@social.instagram %>">
-            <i class="fa-brands fa-instagram-square fa-3x p-2"></i>
+            <i class="fa-brands fa-instagram fa-3x p-2"></i>
           </a>
         <% end %>
         <% if @social.github != "" %>
           <a href="<%=@social.github %>">
-            <i class="fa-brands fa-github-square fa-3x p-2"></i>
+            <i class="fa-brands fa-github fa-3x p-2"></i>
           </a>
         <% end %>
         <% if @social.tiktok != "" %>
           <a href="<%=@social.tiktok %>">
-            <i class="fa-brands fa-tiktok-square fa-3x p-2"></i>
+            <i class="fa-brands fa-tiktok fa-3x p-2"></i>
           </a>
         <% end %>
         <% if @social.facebook != "" %>
           <a href="<%=@social.facebook %>">
-            <i class="fa-brands fa-facebook-square fa-3x p-2"></i>
+            <i class="fa-brands fa-facebook fa-3x p-2"></i>
           </a>
         <% end %>
         <% if @social.medium != "" %>
           <a href="<%=@social.medium %>">
-            <i class="fa-brands fa-medium-square fa-3x p-2"></i>
+            <i class="fa-brands fa-medium fa-3x p-2"></i>
           </a>
         <% end %>
       </div>
@@ -63,6 +63,8 @@
       <% end %>
       <hr>
       <!-- Projects are seperate objects, unlike Widgets which come grouped together -->
+
+
       <% if @widget.projects %>
         <p>Create a project</p>
         <%= simple_form_for(@project) do |f| %>
