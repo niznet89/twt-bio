@@ -18,6 +18,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+
     # only proceed with pretty names
 
     if @user && @user.username && @user.username.size > 0
@@ -30,8 +31,10 @@ class UsersController < ApplicationController
           # save to database
           if @user.save
             # if user is created, congratulations, send them to login
+            raise
             redirect_to edit_user_path(@user), notice: "Successfully created an account, you may now log in."
           else
+            flash[:error] = "User already exists"
             render :new
           end
         end
