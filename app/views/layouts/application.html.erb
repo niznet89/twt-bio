@@ -31,21 +31,21 @@
                 <a class="nav-link active" aria-current="page" href="#">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Features</a>
+                            <%= simple_form_for(@session) do |f| %>
+                  <%= f.input :eth_message, wrapper_html: {hidden: :true} %>
+                  <%= f.input :eth_address, wrapper_html: {hidden: :true} %>
+                  <%= f.input :eth_signature, wrapper_html: {hidden: :true} %>
+                <%  end %>
+                <a class="nav-link" id="connect-wallet">Login / Connect wallet</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Pricing</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Dropdown link
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-              </li>
+              <%# <li class="nav-item"> %>
+                <%# <%= simple_form_for(@session) do |f| %>
+                  <%# <%= f.input :eth_message, wrapper_html: {hidden: :true} %>
+                  <%# <%= f.input :eth_address, wrapper_html: {hidden: :true} %>
+                  <%# <%= f.input :eth_signature, wrapper_html: {hidden: :true} %>
+                <%# <%  end %>
+                <%# <button class="btn btn-primary" id="connect-wallet">Login / Connect wallet</button>
+              </li> %>
             </ul>
           </div>
         </div>
