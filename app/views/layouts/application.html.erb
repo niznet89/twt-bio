@@ -3,16 +3,56 @@
   <head>
     <title>MoonLink</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
     <script src="https://kit.fontawesome.com/178a109485.js" crossorigin="anonymous"></script>
     <%= yield :head %>
   </head>
   <body>
-    <%= render 'shared/navbar' %>
-            <%= yield %>
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-lewagon">
+        <div class="container-fluid">
+          <%= link_to root_path, class: "navbar-brand d-flex" do %>
+            <%= image_tag "logo.png", alt: "moonlink logo" %>
+            <h4 class="logo-text">MoonLink</h4>
+          <% end %>
+          <%# <a class="navbar-brand" href="#">
+      <img src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24" class="d-inline-block align-text-top">
+      Bootstrap
+    </a> %>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon custom-toggler"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Features</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Pricing</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Dropdown link
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <%# <%= render 'shared/navbar' %>
+    <%= yield %>
   </body>
-    <%= render 'shared/footer' %>
+  <%= render 'shared/footer' %>
 </html>

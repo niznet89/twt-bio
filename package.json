@@ -2,7 +2,7 @@
   "name": "landing-page",
   "private": true,
   "dependencies": {
-    "@popperjs/core": "^2.11.4",
+    "@popperjs/core": "^2.11.5",
     "@rails/actioncable": "^6.0.0",
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
