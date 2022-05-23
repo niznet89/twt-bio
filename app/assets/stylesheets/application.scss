@@ -12,36 +12,3 @@
 @import "style";
 @import "components/index";
 @import "pages/index";
-
-* {
-  box-sizing: border-box;
-}
-
-body {
-  // background: white;
-  background:url('background_new.jpg');
-  background-size: cover;
-  background-position: top;
-  background-repeat: no-repeat;
-  color: white;
-  max-width: 4000px;
-  z-index: -2;
-}
-
-section {
-  width: 100%;
-  padding: 0 7%;
-  display: table;
-  margin: 0;
-  max-width: none;
-  height: 100vh;
-}
-
-.block {
-  height: 80vh;
-}
-
-.content {
-  display: table-cell;
-  vertical-align: middle;
-}
