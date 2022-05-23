@@ -12,6 +12,15 @@
         <div id="nfts">
         </div>
       <% end %>
+      <% if @widget.mirror %>
+        <% if @mirror %>
+          <h3>Writing Entries</h3>
+          <% @mirror[:url].each_with_index do |element, index| %>
+            <a href=<%= element %>><%= @mirror[:title][index] %></a>
+              <br>
+            <% end %>
+          <% end %>
+        <% end %>
       <% if @widget.projects %>
         <h3>Projects</h3>
         <div id="projects">
