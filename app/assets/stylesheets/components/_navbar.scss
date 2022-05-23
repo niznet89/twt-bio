@@ -25,3 +25,30 @@
 .navbar-nav {
   align-items: center;
 }
+
+.navbar-expand-lg .navbar-collapse {
+  justify-content: flex-end;
+}
+
+.nav-link {
+  font-weight: bold;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
+}
+
+.navbar-toggler {
+  padding: 0.75rem 0.75rem;
+  border: 2px solid $pink-primary;
+}
+
+.nav-link:hover, .nav-link:focus {
+  color: $pink-primary;
+  border-bottom: 4px inset #31F7C8;
+}
+
+a:hover {
+  color: $pink-primary;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,0,85, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E") !important;
+}
