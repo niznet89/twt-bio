@@ -1,7 +1,7 @@
 <% content_for :head do %>
   <%= javascript_pack_tag "sessions_new", defer: true %>
 <% end %>
-<div class="section hero">
+<section class="block">
   <div class="center text-center">
     <div class="col-lg-8 mx-auto">
       <h1>Content made to<br>go to the moon 🚀</h1>
@@ -15,7 +15,7 @@
           <a href="<%= new_user_path %>" class="btn btn-outline-secondary" role="button" aria-pressed="true">Sign-up w/ Metamask</a>
         </div>
       </div>
-    </div>
+    </section>
     <%# <%= simple_form_for(@session) do |f| %>
       <%# <%= f.input :eth_message, wrapper_html: {hidden: :true} %>
       <%# <%= f.input :eth_address, wrapper_html: {hidden: :true} %>
@@ -26,7 +26,9 @@
     </div>
   </div>
 </div>
+<section class="block">
 <div class="container">
+<div class="content">
   <div class="row text-center">
     <h2 class="my-5">Set up your customized profile in three easy steps</h2>
     <div class="col-sm-12 col-md-12 col-lg-4 mb-3">
@@ -61,7 +63,12 @@
     </div>
   </div>
 </div>
+</div>
+</div>
+</section>
+<section class="block">
 <div class="container">
+<div class="content">
   <div class="row app-preview">
     <h2 class="mt-5 text-center">Set up your customized profile in three easy steps</h2>
     <p class="text-center">Cupcake danish tiramisu powder soda ginger cake. Dessert carrot cake tartsweet marzipan for fruitcake.</p>
@@ -107,3 +114,4 @@
       </div>
   </div>
 </div>
+</section>

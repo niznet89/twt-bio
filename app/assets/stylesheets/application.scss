@@ -28,12 +28,20 @@ body {
   z-index: -2;
 }
 
-
-.page-container {
-  position: relative;
-  // min-height: 100vh;
+section {
+  width: 100%;
+  padding: 0 7%;
+  display: table;
+  margin: 0;
+  max-width: none;
+  height: 100vh;
 }
 
-#content-wrap {
-  padding-bottom: 2.5rem;    /* Footer height */
+.block {
+  height: 80vh;
+}
+
+.content {
+  display: table-cell;
+  vertical-align: middle;
 }
