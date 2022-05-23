@@ -2,9 +2,10 @@
   <%= javascript_pack_tag 'users_edit', 'data-turbolinks-track': 'reload', defer: true
   %>
 <% end %>
+    <%= render 'shared/navbar_edit' %>
 <div class="container">
   <div class="row justify-content-center">
-  <div class="col-sm-6">
+  <div class="col-lg-6">
       <h2>Welcome to your profile <%= @user.username %></h2>
       <p>Select which widgets you would like to include in your profile below</p>
       <!-- User can upload new image, or use the default -->
@@ -22,7 +23,7 @@
         <%= f.input :tiktok %>
         <%= f.input :facebook %>
         <%= f.input :medium %>
-        <%= f.submit "Submit", class: "btn btn-outline-secondary btn-lg w-100" %>
+        <%= f.submit "Submit", class: "btn btn-outline-secondary w-100" %>
       <% end %>
      <!-- Will display the Social links that the user inputted as part of the Socials form -->
       <hr>
@@ -59,7 +60,7 @@
         <%= f.input :mirror %>
         <%= f.input :nfts %>
         <%= f.input :projects %>
-        <%= f.submit "Submit", class: "btn btn-outline-secondary btn-lg w-100" %>
+        <%= f.submit "Submit", class: "btn btn-outline-secondary w-100" %>
       <% end %>
       <hr>
       <!-- Projects are seperate objects, unlike Widgets which come grouped together -->
@@ -71,7 +72,7 @@
           <%= f.input :name %>
           <%= f.input :description %>
           <%= f.input :url %>
-          <%= f.submit "Submit", class: "btn btn-outline-secondary btn-lg w-100" %>
+          <%= f.submit "Submit", class: "btn btn-outline-secondary w-100" %>
         <% end %>
       <% end %>
       <!-- IF the user selects on/true for the respective Widget. It will show in Edit & Profile page -->
@@ -106,7 +107,7 @@
           <% end %>
         <% end %>
       <!-- Link to view profile -->
-      <a href="<%= user_show_path(@user) %>" class="btn btn-outline-secondary btn-lg w-100" role="button" aria-pressed="true">View your profile</a>
+      <a href="<%= user_show_path(@user) %>" class="btn btn-outline-secondary w-100" role="button" aria-pressed="true">View your profile</a>
       <p id="hidden" hidden><%= @user.eth_address %></p>
       </div>
     </div>

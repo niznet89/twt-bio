@@ -2,9 +2,11 @@
   <%= javascript_pack_tag 'users_edit', 'data-turbolinks-track': 'reload', defer: true
   %>
 <% end %>
+    <%= render 'shared/navbar_profile' %>
+<section class="block">
 <div class="container">
-  <div class="row justify-content-center">
-    <div class="col-sm-6">
+  <div class="row text-center">
+    <div class="col-lg-8 mx-auto">
       <h2>Welcome to <%= @user.username%>'s page!</h2>
       <p id="hidden" hidden><%= @user.eth_address %></p>
       <% if @widget.nfts%>
@@ -40,3 +42,4 @@
     </div>
   </div>
 </div>
+</section>
