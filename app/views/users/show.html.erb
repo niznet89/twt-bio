@@ -2,19 +2,27 @@
   <%= javascript_pack_tag 'users_edit', 'data-turbolinks-track': 'reload', defer: true
   %>
 <% end %>
-    <%= render 'shared/navbar_profile' %>
+<%= render 'shared/navbar_profile' %>
 <section class="block">
-<div class="container">
-  <div class="row text-center">
-    <div class="col-lg-8 mx-auto">
-      <h2>Welcome to <%= @user.username%>'s page!</h2>
-      <p id="hidden" hidden><%= @user.eth_address %></p>
-      <% if @widget.nfts%>
-        <h3>Digital Assets (NFT's)</h3>
-        <div id="nfts">
+  <div class="container">
+    <div class="row text-center">
+      <div class="col-lg-8 mx-auto">
+        <div class="mb-3">
+          <%= profile_photo(@user)%>
         </div>
-      <% end %>
-      <% if @widget.mirror %>
+        <h2><%= @user.username%></h2>
+        <p id="hidden" hidden><%= @user.eth_address %></p>
+        <div class="profile my-5">
+          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.</p>
+        </div>
+
+        <% if @widget.nfts%>
+          <h3>Digital Assets (NFT's)</h3>
+          <div id="nfts">
+          </div>
+        <% end %>
+
+  <% if @widget.mirror %>
         <% if @mirror %>
           <h3>Writing Entries</h3>
           <% @mirror[:url].each_with_index do |element, index| %>
@@ -23,7 +31,7 @@
             <% end %>
           <% end %>
         <% end %>
-      <% if @widget.projects %>
+  <% if @widget.projects %>
         <h3>Projects</h3>
         <div id="projects">
         </div>
@@ -39,7 +47,7 @@
           </div>
         <% end %>
       <% end %>
+      </div>
     </div>
   </div>
-</div>
 </section>
