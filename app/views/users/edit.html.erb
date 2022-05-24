@@ -100,8 +100,11 @@
               <div class="card-header">
                 <h5><%= project.name %></h5>
               </div>
+
+              <a href="<%= project.url %>" class="btn btn-primary">Improve Your Ruby Skills</a>
               <div class="card-body">
                 <p class="card-text"><%= project.description %></p>
+
                 <%= raw onebox_preview(project.url) %>
               </div>
             </div>

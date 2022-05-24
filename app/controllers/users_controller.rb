@@ -49,6 +49,7 @@ class UsersController < ApplicationController
       @mirror = mirror_scraping(session[:eth_checksum])
       @widget = Widget.find_by(user_id: @user.id)
       @session = Session.new
+
     else
       render :file => "#{Rails.root}/public/404.html", layout: false, status: :not_found
     end
@@ -97,13 +98,12 @@ class UsersController < ApplicationController
 
     response = Net::HTTP.get_response(uri_1)
 
-    if response.class == Net::HTTPPermanentRedirect
-
-    end
+    # if response.class == Net::HTTPPermanentRedirect end
 
     if response.class != Net::HTTPNotFound
       if response.class == Net::HTTPPermanentRedirect
         final_url = "https://" + uri.host + response.body
+
       else
         final_url = "https://mirror.xyz/#{eth_address}"
       end
@@ -114,8 +114,8 @@ class UsersController < ApplicationController
       html_doc = Nokogiri::HTML(html_file)
       url_hash = { url: [], title: [] }
 
-      html_doc.search(".css-cts56n").each_with_index do |element, index|
-        url_hash[:url].append("https://mirror.xyz#{element.children[0].attributes["href"].value}")
+      html_doc.search(".bc5nci4rz").each_with_index do |element, index|
+        url_hash[:url].append("https://mirror.xyz#{element.children[1].children[0].attributes["href"].value}")
         url_hash[:title].append(html_doc.search(".css-1b1esvm").children[index].text)
       end
       url_hash
