@@ -15,7 +15,7 @@
               Profile
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-              <li><%= link_to "Edit my profile", root_path, class: "dropdown-item" %></li>
+              <li><%= link_to "Edit my profile", edit_user_path(@user), class: "dropdown-item" %></li>
               <li><hr class="dropdown-divider"></li>
               <li><%= link_to "Log out", root_path, class: "dropdown-item" %></li>
             </ul>
