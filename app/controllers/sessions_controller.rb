@@ -43,6 +43,8 @@ class SessionsController < ApplicationController
           end
         end
       end
+    else
+      render 'users/home', notice: "Please sign up if you don't have an account yet"
     end
   end
 

@@ -32,9 +32,10 @@ if (typeof window.ethereum !== 'undefined') {
     //const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
     const accounts = await getChecksumAddress();
     const etherbase = accounts;
-    console.log(accounts);
+
     // sign a message with current time and nonce from database
     const nonce = await getUuidByAccount(etherbase.toLowerCase());
+    console.log(ethereum.selectedAddress, accounts);
     if (nonce) {
       const customTitle = "Landing page on Ethereum";
       const requestTime = new Date().getTime();
@@ -46,6 +47,8 @@ if (typeof window.ethereum !== 'undefined') {
       formInputEthSignature.value = signature;
       document.body.appendChild(formNewSession);
       formNewSession.submit();
+    } else {
+      document.getElementById("sign-in-alert").insertAdjacentHTML('<div class="alert alert-danger" role="alert"> This is a danger alert—check it out!</div>')
     }
   })
 }

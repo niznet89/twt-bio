@@ -34,7 +34,7 @@ class UsersController < ApplicationController
 
             redirect_to edit_user_path(@user), notice: "Successfully created an account, you may now log in."
           else
-            flash[:error] = "User already exists"
+            flash[:error] = "You have already signed up."
             render :new
           end
         end
@@ -82,7 +82,7 @@ class UsersController < ApplicationController
       @preview = Onebox.preview(url)
 
     else
-      redirect_to root_path, notice: "Please sign in or sign up with your Metamask wallet"
+      render :home
     end
   end
 
