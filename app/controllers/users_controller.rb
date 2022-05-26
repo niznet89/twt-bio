@@ -31,7 +31,7 @@ class UsersController < ApplicationController
           # save to database
           if @user.save
             # if user is created, congratulations, send them to login
-            raise
+
             redirect_to edit_user_path(@user), notice: "Successfully created an account, you may now log in."
           else
             flash[:error] = "User already exists"
