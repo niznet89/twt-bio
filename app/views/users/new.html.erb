@@ -13,6 +13,7 @@
         <%= f.input :eth_address, wrapper_html: {hidden: :true} %>
         <%= f.input :eth_checksum, wrapper_html: {hidden: :true} %>
       <% end %>
+      <p class="text-danger"><%=flash[:error]%></p>
       <button class="btn btn-outline-secondary mt-5 w-100" id="sign-up">Sign-up with Ethereum</button>
     </div>
     <div class="col-lg-6 col-md-12 col-sm-12 my-5">
