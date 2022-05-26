@@ -116,7 +116,7 @@ class UsersController < ApplicationController
 
       html_doc.search(".bc5nci4rz").each_with_index do |element, index|
         url_hash[:url].append("https://mirror.xyz#{element.children[1].children[0].attributes["href"].value}")
-        url_hash[:title].append(html_doc.search(".css-1b1esvm").children[index].text)
+        url_hash[:title].append(element.children[1].children[0].children.children[0].text)
       end
       url_hash
     end
