@@ -16,6 +16,37 @@
           <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.</p>
         </div>
 
+        <!-- Will display the Social links that the user inputted as part of the Socials form -->
+      <hr>
+      <div class="social-links d-flex justify-content-center">
+        <% if @social.instagram != ""  %>
+          <a href="<%=@social.instagram %>">
+            <i class="fa-brands fa-instagram fa-2x p-2"></i>
+          </a>
+        <% end %>
+        <% if @social.github != "" %>
+          <a href="<%=@social.github %>">
+            <i class="fa-brands fa-github fa-2x p-2"></i>
+          </a>
+        <% end %>
+        <% if @social.tiktok != "" %>
+          <a href="<%=@social.tiktok %>">
+            <i class="fa-brands fa-tiktok fa-2x p-2"></i>
+          </a>
+        <% end %>
+        <% if @social.facebook != "" %>
+          <a href="<%=@social.facebook %>">
+            <i class="fa-brands fa-facebook fa-2x p-2"></i>
+          </a>
+        <% end %>
+        <% if @social.medium != "" %>
+          <a href="<%=@social.medium %>">
+            <i class="fa-brands fa-medium fa-2x p-2"></i>
+          </a>
+        <% end %>
+      </div>
+      <hr>
+
         <% if @widget.nfts%>
           <h3>Digital Assets (NFT's)</h3>
           <div id="nfts">

@@ -49,6 +49,7 @@ class UsersController < ApplicationController
       @mirror = mirror_scraping(session[:eth_checksum])
       @widget = Widget.find_by(user_id: @user.id)
       @session = Session.new
+      @social = Social.find_by(user_id: @user.id)
 
     else
       render :file => "#{Rails.root}/public/404.html", layout: false, status: :not_found
