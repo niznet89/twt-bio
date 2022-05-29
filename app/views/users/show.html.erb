@@ -15,6 +15,30 @@
         <div class="profile my-5">
           <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.</p>
         </div>
+        <% if @widget.nfts%>
+          <%# <h3>Digital Assets (NFT's)</h3> %>
+          <div id="nfts">
+          </div>
+        <% end %>
+
+  <% if @widget.mirror %>
+        <% if @mirror %>
+          <%# <h3>Writing Entries</h3> %>
+          <% @mirror[:url].each_with_index do |element, index| %>
+            <a href=<%= element %> class="btn btn-outline-secondary w-100 mb-3" target="_blank"><%= @mirror[:title][index] %></a>
+              <br>
+            <% end %>
+          <% end %>
+        <% end %>
+
+  <% if @widget.projects %>
+
+        <%# <div id="projects">
+        </div> %>
+        <% @user.projects.each do |project|%>
+         <a href="<%= project %>" class="btn btn-outline-secondary w-100 mb-3" target="_blank"><%= project[:name] %></a>
+        <% end %>
+      <% end %>
 
         <!-- Will display the Social links that the user inputted as part of the Socials form -->
       <hr>
@@ -45,39 +69,6 @@
           </a>
         <% end %>
       </div>
-      <hr>
-
-        <% if @widget.nfts%>
-          <h3>Digital Assets (NFT's)</h3>
-          <div id="nfts">
-          </div>
-        <% end %>
-
-  <% if @widget.mirror %>
-        <% if @mirror %>
-          <h3>Writing Entries</h3>
-          <% @mirror[:url].each_with_index do |element, index| %>
-            <a href=<%= element %>><%= @mirror[:title][index] %></a>
-              <br>
-            <% end %>
-          <% end %>
-        <% end %>
-  <% if @widget.projects %>
-        <h3>Projects</h3>
-        <div id="projects">
-        </div>
-        <% @user.projects.each do |project|%>
-          <div class="card">
-            <div class="card-header">
-              <h5><%= project.name %></h5>
-            </div>
-            <div class="card-body">
-              <p class="card-text"><%= project.description %></p>
-              <%= raw onebox_preview(project.url) %>
-            </div>
-          </div>
-        <% end %>
-      <% end %>
       </div>
     </div>
   </div>
