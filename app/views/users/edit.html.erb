@@ -91,23 +91,23 @@
           <div id="nfts">
           </div>
         <% end %>
-        <% if @widget.projects %>
-          <h3>Projects</h3>
+        <%# <% if @widget.projects %>
+          <%# <h3>Projects</h3>
           <div id="projects">
           </div>
           <% @user.projects.each do |project|%>
-            <div class="card">
-              <div class="card-header">
-                <h5><%= project.name %></h5>
-              </div>
-              <div class="card-body">
-                <p class="card-text"><%= project.description %></p>
+            <%# <div class="card">
+              <div class="card-header"> %>
+                <%# <h5><%= project.name </h5> %>
+              <%# </div>
+              <div class="card-body"> %>
+                <%# <p class="card-text"><%= project.description</p> %>
 
-                <%= raw onebox_preview(project.url) %>
-              </div>
-            </div>
-          <% end %>
-        <% end %>
+                <%# <%= raw onebox_preview(project.url) %>
+              <%# </div> %>
+            <%# </div> %>
+          <%# <% end %>
+        <%# <% end %>
       <!-- Link to view profile -->
       <a href="<%= user_show_path(@user) %>" class="btn btn-outline-secondary w-100" role="button" aria-pressed="true">View your profile</a>
       <p id="hidden" hidden><%= @user.eth_address %></p>

@@ -16,13 +16,7 @@ button.addEventListener('click', async () => {
   })
   .then((response) => response.json())
   .then((json) => json.forEach(element => {
-    document.getElementById("projects").insertAdjacentHTML('beforeend', `<div class="card">
-    <div class="card-header">
-      <h5 class="card-title"><a href="${element.html_url}">${element.name}</a></h5>
-    </div>
-    <div class="card-body">
-      <p class="card-text">${element.description || ""}</p>
-    </div>
-  </div>`)
+    document.getElementById("projects").insertAdjacentHTML('beforeend', `
+      <a href="${element.html_url}" class="btn" target="_blank">${element.name}</a>`)
   }))
 })
