@@ -36,7 +36,7 @@
           <% if @widget.mirror  %>
             <% if @mirror %>
               <% @mirror[:url].each_with_index do |element, index| %>
-                <div class="card card-body">
+                <div>
                   <a href=<%= element %> class="btn btn-outline-secondary w-100 mb-3" target="_blank"><%= @mirror[:title][index] %></a>
                 </div>
               <% end %>
@@ -84,6 +84,28 @@
           <% end %>
         </div>
         <!-- END OF SOCIAL SECTION -->
+
+      <% if @widget.nfts%>
+        <p>
+          <a class="btn btn-outline-secondary w-100 mb-3" data-bs-toggle="collapse" href="#collapseNFT" role="button" aria-expanded="false" aria-controls="collapseNFT">
+           Digital Assets (NFT's)
+          </a>
+        </p>
+        <div class="collapse" id="collapseNFT">
+          <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner" id="nfts">
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+          </div>
+        </div>
+      <% end %>
 
       </div>
     </div>
