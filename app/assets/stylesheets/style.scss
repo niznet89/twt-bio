@@ -2,10 +2,6 @@
   box-sizing: border-box;
 }
 
-html {
-  height: 100%;
-}
-
 body {
   background:url('background.jpg');
   background-size: cover;
@@ -95,26 +91,6 @@ section {
   height: 3px;
   background: transparent;
   box-shadow: 1533px 305px #FFF , 414px 576px #FFF , 1570px 553px #FFF , 1654px 455px #FFF , 1522px 204px #FFF , 43px 1802px #FFF , 1207px 1174px #FFF , 503px 1666px #FFF , 244px 249px #FFF , 523px 757px #FFF , 1235px 1129px #FFF , 949px 1773px #FFF , 1258px 880px #FFF , 1726px 609px #FFF , 1323px 282px #FFF , 1830px 133px #FFF , 949px 1845px #FFF , 335px 777px #FFF , 1923px 1341px #FFF , 1825px 1292px #FFF , 464px 1828px #FFF , 1241px 777px #FFF , 540px 1767px #FFF , 1874px 416px #FFF , 1874px 1952px #FFF , 887px 1370px #FFF , 446px 694px #FFF , 587px 802px #FFF , 1270px 922px #FFF , 487px 1497px #FFF , 817px 68px #FFF , 1911px 333px #FFF , 529px 883px #FFF , 358px 229px #FFF , 1738px 467px #FFF , 356px 111px #FFF , 308px 403px #FFF , 827px 1772px #FFF , 1702px 415px #FFF , 1047px 1394px #FFF , 1392px 427px #FFF , 1814px 754px #FFF , 1310px 1727px #FFF , 1179px 741px #FFF , 1820px 111px #FFF , 858px 1778px #FFF , 1021px 1334px #FFF , 1067px 1719px #FFF , 1753px 822px #FFF , 1753px 313px #FFF , 1595px 151px #FFF , 65px 463px #FFF , 1523px 696px #FFF , 1649px 422px #FFF , 1076px 1817px #FFF , 1064px 289px #FFF , 451px 40px #FFF , 903px 13px #FFF , 1101px 248px #FFF , 282px 206px #FFF , 709px 106px #FFF , 1252px 137px #FFF , 798px 1520px #FFF , 1508px 382px #FFF , 349px 144px #FFF , 782px 1887px #FFF , 1971px 804px #FFF , 1243px 873px #FFF , 160px 597px #FFF , 345px 516px #FFF , 575px 1792px #FFF , 153px 860px #FFF , 629px 1544px #FFF , 1519px 1914px #FFF , 1850px 611px #FFF , 1661px 1056px #FFF , 562px 469px #FFF , 947px 342px #FFF , 287px 1327px #FFF , 955px 944px #FFF , 1583px 1787px #FFF , 969px 450px #FFF , 1718px 457px #FFF , 1666px 391px #FFF , 1701px 1104px #FFF , 240px 697px #FFF , 1128px 477px #FFF , 1043px 420px #FFF , 622px 1986px #FFF , 1702px 344px #FFF , 416px 1154px #FFF , 1961px 1471px #FFF , 855px 395px #FFF , 775px 1894px #FFF , 392px 1406px #FFF , 262px 1439px #FFF , 376px 87px #FFF , 1199px 1828px #FFF , 1005px 937px #FFF , 1045px 851px #FFF;
-}
-
-#title {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  right: 0;
-  color: #FFF;
-  text-align: center;
-  font-family: "lato", sans-serif;
-  font-weight: 300;
-  font-size: 50px;
-  letter-spacing: 10px;
-  margin-top: -60px;
-  padding-left: 10px;
-}
-#title span {
-  background: -webkit-linear-gradient(white, #38495a);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 @keyframes animStar {

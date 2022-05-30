@@ -16,11 +16,12 @@
           <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.</p>
         </div>
         <% if @widget.nfts%>
+        <% if @nfts %>
           <%# <h3>Digital Assets (NFT's)</h3> %>
           <div id="nfts">
           </div>
         <% end %>
-
+        <% end %>
   <% if @widget.mirror %>
         <% if @mirror %>
           <%# <h3>Writing Entries</h3> %>
