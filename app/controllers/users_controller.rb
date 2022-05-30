@@ -46,7 +46,7 @@ class UsersController < ApplicationController
     @user = User.find_by(username: params[:id])
     # @user = User.find(session[:user_id])
     if @user
-      @mirror = mirror_scraping(session[:eth_checksum])
+      @mirror = mirror_scraping(@user.eth_checksum)
       @widget = Widget.find_by(user_id: @user.id)
       @session = Session.new
       @social = Social.find_by(user_id: @user.id)
