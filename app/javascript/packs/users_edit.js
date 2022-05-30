@@ -18,10 +18,8 @@ fetch(url, {
   })
   .then((response) => response.json())
   .then((json) => json.assets.forEach(nft => {
-    document.getElementById("nfts").insertAdjacentHTML('beforeend', `<div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="${nft.image_url}" alt="Card image cap">
-    <div class="card-body">
-      <p class="card-text">${nft.description}</p>
-    </div>
-  </div>`)
+    document.getElementById("nfts").insertAdjacentHTML('beforeend', `
+  <div>
+      <a href="${nft.url}" class="btn btn-outline-secondary w-100 mb-3">${nft.name}</a>
+     </div>`)
   }) );

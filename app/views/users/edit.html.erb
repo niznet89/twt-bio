@@ -2,13 +2,12 @@
   <%= javascript_pack_tag 'users_edit', 'data-turbolinks-track': 'reload', defer: true
   %>
 <% end %>
-    <%= render 'shared/navbar_edit' %>
+<%= render 'shared/navbar_edit' %>
 <div class="container">
   <div class="row justify-content-center">
-  <div class="col-lg-6">
+    <div class="col-lg-6">
       <h2>Welcome to your profile <%= @user.username %></h2>
-
-      <p>Select which widgets you would like to include in your profile below</p>
+      <p class="text-center">Upload a profile photo then select the widgets you want included in your profile below.</p>
       <!-- User can upload new image, or use the default -->
       <%= profile_photo(@user)%>
       <%= simple_form_for(@user) do |f| %>
@@ -57,7 +56,7 @@
         <% end %>
       </div>
       <hr>
-      <!-- User chooses which Widgets are shown on profile page. State is maintained in DB. -->
+      <h3>Connect a widget</h3>
       <%= simple_form_for(@widget) do |f| %>
         <%= f.input :mirror, hint:"Toggle on/off to show each app on your profile page" %>
         <%= f.input :nfts %>
@@ -66,52 +65,32 @@
       <% end %>
       <hr>
       <!-- Projects are seperate objects, unlike Widgets which come grouped together -->
-
-
       <% if @widget.projects %>
-        <p>Create a project</p>
+        <h3>Add a project</h3>
         <%= simple_form_for(@project) do |f| %>
           <%= f.input :name %>
           <%= f.input :description %>
           <%= f.input :url %>
           <%= f.submit "Save", class: "btn btn-outline-secondary w-100" %>
+          <hr>
         <% end %>
       <% end %>
-      <!-- IF the user selects on/true for the respective Widget. It will show in Edit & Profile page -->
-      <% if @widget.mirror %>
-        <% if @mirror %>
-          <h3>Writing Entries</h3>
-          <% @mirror[:url].each_with_index do |element, index| %>
-            <a href=<%= element %>><%= @mirror[:title][index] %></a>
-              <br>
-            <% end %>
-          <% end %>
-        <% end %>
-        <% if @widget.nfts%>
-          <h3>Digital Assets (NFT's)</h3>
-          <div id="nfts">
-          </div>
-        <% end %>
-        <% if @widget.projects %>
-          <h3>Projects</h3>
-          <div id="projects">
-          </div>
-          <% @user.projects.each do |project|%>
-            <div class="card">
-              <div class="card-header">
-                <h5><%= project.name %></h5>
-              </div>
-              <div class="card-body">
-                <p class="card-text"><%= project.description %></p>
-
-                <%= raw onebox_preview(project.url) %>
-              </div>
-            </div>
-          <% end %>
-        <% end %>
+      <h3>Add your social accounts</h3>
+      <!-- User can determine which socials they'd like on their profile page, when they input a url the icon will show -->
+      <!-- Will need to let user know that they need to submit the full url, (https://) included -->
+      <%= simple_form_for(@social) do |f| %>
+        <%= f.input :instagram %>
+        <%= f.input :github %>
+        <%= f.input :tiktok %>
+        <%= f.input :facebook %>
+        <%= f.input :medium %>
+        <%= f.submit "Save", class: "btn btn-outline-secondary w-100" %>
+      <% end %>
+      <!-- User chooses which Widgets are shown on profile page. State is maintained in DB. -->
+      <hr>
       <!-- Link to view profile -->
       <a href="<%= user_show_path(@user) %>" class="btn btn-outline-secondary w-100" role="button" aria-pressed="true">View your profile</a>
       <p id="hidden" hidden><%= @user.eth_address %></p>
-      </div>
     </div>
   </div>
+</div>

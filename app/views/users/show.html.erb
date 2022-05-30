@@ -16,68 +16,66 @@
           <p><%= @user.description %></p>
         </div>
 
-        <!-- Will display the Social links that the user inputted as part of the Socials form -->
-      <hr>
-      <div class="social-links d-flex justify-content-center">
-        <% if @social.instagram != ""  %>
-          <a href="<%=@social.instagram %>">
-            <i class="fa-brands fa-instagram fa-2x p-2"></i>
-          </a>
-        <% end %>
-        <% if @social.github != "" %>
-          <a href="<%=@social.github %>">
-            <i class="fa-brands fa-github fa-2x p-2"></i>
-          </a>
-        <% end %>
-        <% if @social.tiktok != "" %>
-          <a href="<%=@social.tiktok %>">
-            <i class="fa-brands fa-tiktok fa-2x p-2"></i>
-          </a>
-        <% end %>
-        <% if @social.facebook != "" %>
-          <a href="<%=@social.facebook %>">
-            <i class="fa-brands fa-facebook fa-2x p-2"></i>
-          </a>
-        <% end %>
-        <% if @social.medium != "" %>
-          <a href="<%=@social.medium %>">
-            <i class="fa-brands fa-medium fa-2x p-2"></i>
-          </a>
-        <% end %>
-      </div>
-      <hr>
+        <!-- Will display the NFT links that the user inputted as part of the widgets form -->
+        <% if @widget.nfts %>
+          <% if @nfts %>
+            <% @nfts[:url].each_with_index do |element, index| %>
+              <a href=<%= element %> class="btn btn-outline-secondary w-100 mb-3" target="_blank"><%= @nfts[:name][index] %></a>
+              <% end %>
+            <% end %>
+          <% end %>
+        <!-- END OF NFT SECTION -->
 
-        <% if @widget.nfts%>
-          <h3>Digital Assets (NFT's)</h3>
-          <div id="nfts">
-          </div>
-        <% end %>
-
-  <% if @widget.mirror %>
-        <% if @mirror %>
-          <h3>Writing Entries</h3>
-          <% @mirror[:url].each_with_index do |element, index| %>
-            <a href=<%= element %>><%= @mirror[:title][index] %></a>
-              <br>
+        <!-- Will display the Mirror blog links that the user inputted as part of the widgets form -->
+        <% if @widget.mirror %>
+          <% if @mirror %>
+            <% @mirror[:url].each_with_index do |element, index| %>
+              <a href=<%= element %> class="btn btn-outline-secondary w-100 mb-3" target="_blank"><%= @mirror[:title][index] %></a>
             <% end %>
           <% end %>
         <% end %>
-  <% if @widget.projects %>
-        <h3>Projects</h3>
-        <div id="projects">
-        </div>
-        <% @user.projects.each do |project|%>
-          <div class="card">
-            <div class="card-header">
-              <h5><%= project.name %></h5>
-            </div>
-            <div class="card-body">
-              <p class="card-text"><%= project.description %></p>
-              <%= raw onebox_preview(project.url) %>
-            </div>
-          </div>
+        <!-- END OF MIRROR SECTION -->
+
+        <!-- NOT CURRENTLY RENDERING THE CORRECT LINK - Will display the project links that the user inputted as part of the projects form -->
+        <% if @widget.projects %>
+          <% @user.projects.each do |project|%>
+            <a href="<%= project %>" class="btn btn-outline-secondary w-100 mb-3" target="_blank"><%= project[:name] %></a>
+          <% end %>
         <% end %>
-      <% end %>
+
+        <!-- END OF PROJECTS SECTION -->
+
+        <!-- Will display the social links that the user inputted as part of the socials form -->
+        <hr>
+        <div class="social-links d-flex justify-content-center">
+          <% if @social.instagram != ""  %>
+            <a href="<%=@social.instagram %>">
+              <i class="fa-brands fa-instagram fa-2x p-2"></i>
+            </a>
+          <% end %>
+          <% if @social.github != "" %>
+            <a href="<%=@social.github %>">
+              <i class="fa-brands fa-github fa-2x p-2"></i>
+            </a>
+          <% end %>
+          <% if @social.tiktok != "" %>
+            <a href="<%=@social.tiktok %>">
+              <i class="fa-brands fa-tiktok fa-2x p-2"></i>
+            </a>
+          <% end %>
+          <% if @social.facebook != "" %>
+            <a href="<%=@social.facebook %>">
+              <i class="fa-brands fa-facebook fa-2x p-2"></i>
+            </a>
+          <% end %>
+          <% if @social.medium != "" %>
+            <a href="<%=@social.medium %>">
+              <i class="fa-brands fa-medium fa-2x p-2"></i>
+            </a>
+          <% end %>
+        </div>
+        <!-- END OF SOCIAL SECTION -->
+
       </div>
     </div>
   </div>
