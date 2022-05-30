@@ -15,20 +15,6 @@
         <%= f.submit "Change profile photo", class: "btn btn-outline-secondary w-100" %>
       <% end %>
       <hr>
-            <h3>Add your social accounts</h3>
-
-      <!-- User can determine which socials they'd like on their profile page, when they input a url the icon will show -->
-      <!-- Will need to let user know that they need to submit the full url, (https://) included -->
-      <%= simple_form_for(@social) do |f| %>
-        <%= f.input :instagram %>
-        <%= f.input :github %>
-        <%= f.input :tiktok %>
-        <%= f.input :facebook %>
-        <%= f.input :medium %>
-        <%= f.submit "Save", class: "btn btn-outline-secondary w-100" %>
-      <% end %>
-      <!-- User chooses which Widgets are shown on profile page. State is maintained in DB. -->
-      <hr>
       <h3>Connect a widget</h3>
       <%= simple_form_for(@widget) do |f| %>
         <%= f.input :mirror %>
@@ -45,9 +31,22 @@
           <%= f.input :description %>
           <%= f.input :url %>
           <%= f.submit "Save", class: "btn btn-outline-secondary w-100" %>
-      <hr>
+          <hr>
         <% end %>
       <% end %>
+      <h3>Add your social accounts</h3>
+      <!-- User can determine which socials they'd like on their profile page, when they input a url the icon will show -->
+      <!-- Will need to let user know that they need to submit the full url, (https://) included -->
+      <%= simple_form_for(@social) do |f| %>
+        <%= f.input :instagram %>
+        <%= f.input :github %>
+        <%= f.input :tiktok %>
+        <%= f.input :facebook %>
+        <%= f.input :medium %>
+        <%= f.submit "Save", class: "btn btn-outline-secondary w-100" %>
+      <% end %>
+      <!-- User chooses which Widgets are shown on profile page. State is maintained in DB. -->
+      <hr>
       <!-- Link to view profile -->
       <a href="<%= user_show_path(@user) %>" class="btn btn-outline-secondary w-100" role="button" aria-pressed="true">View your profile</a>
       <p id="hidden" hidden><%= @user.eth_address %></p>
