@@ -61,6 +61,7 @@ class UsersController < ApplicationController
     @user = current_user
     if params[:user]
       @user.photo = user_params[:photo]
+      @user.description = user_params[:description]
       @user.save
       redirect_to edit_user_path(@user), notice: "Your profile picture was succesfully updated!"
     else
@@ -124,6 +125,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:username, :eth_address, :eth_checksum, :photo)
+    params.require(:user).permit(:username, :description, :eth_address, :eth_checksum, :photo)
   end
 end
