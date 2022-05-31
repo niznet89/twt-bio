@@ -39,7 +39,7 @@
         <!-- NOT CURRENTLY RENDERING THE CORRECT LINK - Will display the project links that the user inputted as part of the projects form -->
         <% if @widget.projects %>
           <% @user.projects.each do |project|%>
-            <a href="<%= project %>" class="btn btn-outline-secondary w-100 mb-3" target="_blank"><%= project[:name] %></a>
+            <a href="<%= project.url %>" class="btn btn-outline-secondary w-100 mb-3" target="_blank"><%= project[:name] %></a>
           <% end %>
         <% end %>
 
