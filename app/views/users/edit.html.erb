@@ -69,7 +69,7 @@
         <h3>Add a project/link</h3>
         <%= simple_form_for(@project) do |f| %>
           <%= f.input :name %>
-          <%= f.input :description %>
+          <%= f.input :description, hint: "Can not be longer then 100 characters" %>
           <%= f.input :url, hint: "Must include full URL's eg. https://www.github.com/YOUR_USERNAME" %>
           <%= f.submit "Save", class: "btn btn-outline-secondary w-100" %>
           <hr>
