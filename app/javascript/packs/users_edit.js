@@ -19,7 +19,7 @@ fetch(url, {
   .then((response) => response.json())
   .then((json) => json.assets.forEach(nft => {
     document.getElementById("nfts").insertAdjacentHTML('beforeend', `
-  <div>
-      <a href="${nft.url}" class="btn btn-outline-secondary w-100 mb-3">${nft.name}</a>
+     <div class="carousel-item ${nft === json.assets[0] ? 'active' : ''}">
+      <img class="d-block w-10 h-100" src="${nft.image_url}">
      </div>`)
   }) );

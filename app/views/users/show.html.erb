@@ -11,7 +11,7 @@
           <%= profile_photo(@user)%>
         </div>
         <h2><%= @user.username%></h2>
-        <p id="hidden" hidden><%= @user.eth_address %></p>
+        <p id="hidden" hidden><%= @user.eth_checksum %></p>
         <div class="profile my-5">
           <p><%= @user.description %></p>
         </div>
@@ -27,14 +27,23 @@
         <!-- END OF NFT SECTION -->
 
         <!-- Will display the Mirror blog links that the user inputted as part of the widgets form -->
-        <% if @widget.mirror %>
-          <% if @mirror %>
-            <% @mirror[:url].each_with_index do |element, index| %>
-              <a href=<%= element %> class="btn btn-outline-secondary w-100 mb-3" target="_blank"><%= @mirror[:title][index] %></a>
+        <p>
+          <a class="btn btn-outline-secondary w-100 mb-3" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+            Mirror blog posts
+          </a>
+        </p>
+        <div class="collapse" id="collapseExample">
+          <% if @widget.mirror  %>
+            <% if @mirror %>
+              <% @mirror[:url].each_with_index do |element, index| %>
+                <div>
+                  <a href=<%= element %> class="btn btn-outline-secondary w-100 mb-3" target="_blank"><%= @mirror[:title][index] %></a>
+                </div>
+              <% end %>
             <% end %>
           <% end %>
-        <% end %>
-        <!-- END OF MIRROR SECTION -->
+        </div>
+         <!-- END OF MIRROR SECTION -->
 
         <!-- NOT CURRENTLY RENDERING THE CORRECT LINK - Will display the project links that the user inputted as part of the projects form -->
         <% if @widget.projects %>
@@ -75,6 +84,29 @@
           <% end %>
         </div>
         <!-- END OF SOCIAL SECTION -->
+
+      <% if @widget.nfts%>
+        <p>
+          <a class="btn btn-outline-secondary w-100 mb-3" data-bs-toggle="collapse" href="#collapseNFT" role="button" aria-expanded="false" aria-controls="collapseNFT">
+           Digital Assets (NFT's)
+          </a>
+        </p>
+        <div class="collapse" id="collapseNFT">
+          <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner" id="nfts">
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+      <% end %>
 
       </div>
     </div>
