@@ -7,12 +7,13 @@
   <div class="container">
     <div class="row text-center">
       <div class="col-lg-8 mx-auto">
-        <div class="mb-3">
-          <%= profile_photo(@user)%>
+        <div class="mb-5">
+          <%# <%= profile_photo(@user)%>
+          <%= cl_image_tag @user.photo.key, :width=>300, :height=>300, :border=> { :width => 2, :color => '#303030' }, :gravity=>"face", :radius=>"max", :crop=>"fill", :format=> "png"%>
         </div>
-        <h2><%= @user.username%></h2>
+        <h2 class="mb-3"><%= @user.username%></h2>
         <p id="hidden" hidden><%= @user.eth_checksum %></p>
-        <div class="profile my-5">
+        <div class="profile mb-5">
           <p><%= @user.description %></p>
         </div>
         <!-- Will display the NFT links that the user inputted as part of the widgets form -->
