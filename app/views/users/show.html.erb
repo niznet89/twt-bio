@@ -15,37 +15,6 @@
         <div class="profile my-5">
           <p><%= @user.description %></p>
         </div>
-
-      <!-- Will display the social links that the user inputted as part of the socials form -->
-        <div class="social-links d-flex justify-content-center">
-          <% if @social.instagram != ""  %>
-            <a href="<%=@social.instagram %>">
-              <i class="fa-brands fa-instagram fa-2x p-2"></i>
-            </a>
-          <% end %>
-          <% if @social.github != "" %>
-            <a href="<%=@social.github %>">
-              <i class="fa-brands fa-github fa-2x p-2"></i>
-            </a>
-          <% end %>
-          <% if @social.tiktok != "" %>
-            <a href="<%=@social.tiktok %>">
-              <i class="fa-brands fa-tiktok fa-2x p-2"></i>
-            </a>
-          <% end %>
-          <% if @social.facebook != "" %>
-            <a href="<%=@social.facebook %>">
-              <i class="fa-brands fa-facebook fa-2x p-2"></i>
-            </a>
-          <% end %>
-          <% if @social.medium != "" %>
-            <a href="<%=@social.medium %>">
-              <i class="fa-brands fa-medium fa-2x p-2"></i>
-            </a>
-          <% end %>
-        </div>
-        <!-- END OF SOCIALS -->
-        <hr style="margin-bottom:20px; margin-top: 5px">
         <!-- Will display the NFT links that the user inputted as part of the widgets form -->
         <% if @widget.nfts%>
           <p>
@@ -83,7 +52,7 @@
             <% if @mirror %>
               <% @mirror[:url].each_with_index do |element, index| %>
                 <div>
-                  <a href=<%= element %> class="btn btn-outline-secondary w-100 mb-3" target="_blank"><%= @mirror[:title][index] %></a>
+                  <a href=<%= element %> class="btn btn-link w-100 mb-3" target="_blank"><%= @mirror[:title][index] %></a>
                 </div>
               <% end %>
             <% end %>
@@ -100,7 +69,37 @@
         <% end %>
 
         <!-- END OF PROJECTS SECTION -->
+                <hr>
 
+      <!-- Will display the social links that the user inputted as part of the socials form -->
+        <div class="social-links d-flex justify-content-center">
+          <% if @social.instagram != ""  %>
+            <a href="<%=@social.instagram %>">
+              <i class="fa-brands fa-instagram fa-2x p-2"></i>
+            </a>
+          <% end %>
+          <% if @social.github != "" %>
+            <a href="<%=@social.github %>">
+              <i class="fa-brands fa-github fa-2x p-2"></i>
+            </a>
+          <% end %>
+          <% if @social.tiktok != "" %>
+            <a href="<%=@social.tiktok %>">
+              <i class="fa-brands fa-tiktok fa-2x p-2"></i>
+            </a>
+          <% end %>
+          <% if @social.facebook != "" %>
+            <a href="<%=@social.facebook %>">
+              <i class="fa-brands fa-facebook fa-2x p-2"></i>
+            </a>
+          <% end %>
+          <% if @social.medium != "" %>
+            <a href="<%=@social.medium %>">
+              <i class="fa-brands fa-medium fa-2x p-2"></i>
+            </a>
+          <% end %>
+        </div>
+        <!-- END OF SOCIALS -->
       </div>
     </div>
   </div>
