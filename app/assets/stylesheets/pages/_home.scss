@@ -8,10 +8,17 @@
   transform: translate(-50%, -50%);
 }
 
-.hero-center {
+.desktop-banner {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.mobile-banner {
+  height: 100vh;
+  color: #eee;
+  text-align: center;
+  padding-top: 15vh;
 }
 
 .card-body {

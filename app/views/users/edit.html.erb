@@ -9,73 +9,37 @@
       <h2>Welcome to your profile <%= @user.username %></h2>
       <p class="text-center">Upload a profile photo then select the widgets you want included in your profile below.</p>
       <!-- User can upload new image, or use the default -->
+      <div class="text-center">
       <%= profile_photo(@user)%>
-      <%= simple_form_for(@user) do |f| %>
-        <%= f.input :photo, as: :file, label: "Input image" %>
-        <%= f.input :description, label: 'Profile bio', hint: 'Can not be longer than 200 characters' %>
-        <%= f.submit "Change profile photo", class: "btn btn-primary w-100" %>
-      <% end %>
-            <hr>
-      <!-- User can determine which socials they'd like on their profile page, when they input a url the icon will show -->
-      <!-- Will need to let user know that they need to submit the full url, (https://) included -->
-      <%= simple_form_for(@social) do |f| %>
-        <%= f.input :instagram, hint: "Must include full URL's eg. https://www.instagram.com/YOUR_USERNAME" %>
-        <%= f.input :github %>
-        <%= f.input :tiktok %>
-        <%= f.input :facebook %>
-        <%= f.input :medium %>
-        <%= f.submit "Save", class: "btn btn-outline-secondary w-100" %>
-      <% end %>
-     <!-- Will display the Social links that the user inputted as part of the Socials form -->
-      <hr>
-      <div class="social-links d-flex justify-content-center">
-        <% if @social.instagram != ""  %>
-          <a href="<%=@social.instagram %>">
-            <i class="fa-brands fa-instagram fa-2x p-2"></i>
-          </a>
-        <% end %>
-        <% if @social.github != "" %>
-          <a href="<%=@social.github %>">
-            <i class="fa-brands fa-github fa-2x p-2"></i>
-          </a>
-        <% end %>
-        <% if @social.tiktok != "" %>
-          <a href="<%=@social.tiktok %>">
-            <i class="fa-brands fa-tiktok fa-2x p-2"></i>
-          </a>
-        <% end %>
-        <% if @social.facebook != "" %>
-          <a href="<%=@social.facebook %>">
-            <i class="fa-brands fa-facebook fa-2x p-2"></i>
-          </a>
-        <% end %>
-        <% if @social.medium != "" %>
-          <a href="<%=@social.medium %>">
-            <i class="fa-brands fa-medium fa-2x p-2"></i>
-          </a>
-        <% end %>
       </div>
+
+      <%= simple_form_for(@user) do |f| %>
+        <%= f.input :photo, as: :file, label: "Upload profile photo" %>
+          <%= f.input :description, label: 'Profile bio', hint: 'Bio cannot be longer than 200 characters' %>
+          <%= f.button :submit, "Submit", class: "btn btn-outline-secondary w-100" %>
+      <% end %>
       <hr>
-      <h3>Connect a widget</h3>
+      <h3 class="mt-4">Connect a widget</h3>
+      <figcaption class="mb-4">Toggle on/off to show each app on your profile page</figcaption>
       <%= simple_form_for(@widget) do |f| %>
-        <%= f.input :mirror, hint:"Toggle on/off to show each app on your profile page" %>
+      <div class="widget">
+        <%= f.input :mirror %>
         <%= f.input :nfts %>
         <%= f.input :projects %>
-        <%= f.submit "Save", class: "btn btn-outline-secondary w-100" %>
+        <%= f.submit "Save", class: "btn btn-outline-secondary mb-3" %>
+      </div>
       <% end %>
       <hr>
       <!-- Projects are seperate objects, unlike Widgets which come grouped together -->
-
-        <h3>Add a project/link</h3>
-        <%= simple_form_for(@project) do |f| %>
-          <%= f.input :name %>
-          <%= f.input :description, hint: "Can not be longer then 100 characters" %>
-          <%= f.input :url, hint: "Must include full URL's eg. https://www.github.com/YOUR_USERNAME" %>
-          <%= f.submit "Save", class: "btn btn-outline-secondary w-100" %>
-          <hr>
-        <% end %>
-
-      <h3>Add your social accounts</h3>
+      <h3 class="my-4">Add a project/link</h3>
+      <%= simple_form_for(@project) do |f| %>
+        <%= f.input :name %>
+        <%= f.input :description, hint: "Cannot be longer then 100 characters" %>
+        <%= f.input :url, hint: "Must include full URLs eg. https://www.github.com/YOUR_USERNAME" %>
+        <%= f.submit "Save", class: "btn btn-outline-secondary w-100" %>
+        <hr>
+      <% end %>
+      <h3 class="my-4">Add your social accounts</h3>
       <!-- User can determine which socials they'd like on their profile page, when they input a url the icon will show -->
       <!-- Will need to let user know that they need to submit the full url, (https://) included -->
       <%= simple_form_for(@social) do |f| %>
