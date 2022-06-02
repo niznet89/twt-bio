@@ -16,15 +16,18 @@
       <%= simple_form_for(@user) do |f| %>
         <%= f.input :photo, as: :file, label: "Upload profile photo" %>
           <%= f.input :description, label: 'Profile bio', hint: 'Bio cannot be longer than 200 characters' %>
-          <%= f.submit "Submit", class: "btn btn-outline-secondary w-100" %>
+          <%= f.button :submit, "Submit", class: "btn btn-outline-secondary w-100" %>
       <% end %>
       <hr>
-      <h3 class="my-4">Connect a widget</h3>
+      <h3 class="mt-4">Connect a widget</h3>
+      <figcaption class="mb-4">Toggle on/off to show each app on your profile page</figcaption>
       <%= simple_form_for(@widget) do |f| %>
-        <%= f.input :mirror, hint:"Toggle on/off to show each app on your profile page" %>
-        <%= f.input :nfts, hint:"Toggle on/off to show each app on your profile page" %>
-        <%= f.input :projects, hint:"Toggle on/off to show each app on your profile page" %>
-        <%= f.submit "Save", class: "btn btn-outline-secondary w-100" %>
+      <div class="widget">
+        <%= f.input :mirror %>
+        <%= f.input :nfts %>
+        <%= f.input :projects %>
+        <%= f.submit "Save", class: "btn btn-outline-secondary mb-3" %>
+      </div>
       <% end %>
       <hr>
       <!-- Projects are seperate objects, unlike Widgets which come grouped together -->
