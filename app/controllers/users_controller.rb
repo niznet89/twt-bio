@@ -63,7 +63,7 @@ class UsersController < ApplicationController
       @user.photo = user_params[:photo]
       @user.description = user_params[:description]
       @user.save
-      redirect_to edit_user_path(@user), notice: "Your profile picture was succesfully updated!"
+      redirect_to edit_user_path(@user), notice: "✔ Your profile picture and bio were succesfully updated!"
     else
       redirect_to edit_user_path(@user), notice: "Please include an image."
     end
