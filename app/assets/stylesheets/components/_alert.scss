@@ -1,6 +1,41 @@
 .alert {
-  position: fixed;
-  bottom: 16px;
-  right: 16px;
+  top: 0;
+  width: 100%;
   z-index: 1000;
+  border-radius: 0;
+  border: none;
+  text-align: center;
+  font-size: 18px;
+}
+
+
+.flash {
+  position: fixed;
+  padding: 0.75rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  // box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  margin: 8px;
+  text-align: center;
+  font-size: 18px;
+}
+
+.alert-success {
+  border-bottom: 2px solid $pink-primary;
+  background: $pink-primary;
+  color: $white;
+
+}
+
+// .flash-success {
+//   border: 2px solid $green-primary;
+// }
+
+.flash-warning {
+  border: 2px solid $orange;
+}
+
+.flash-danger {
+  border: 2px solid $red;
 }
