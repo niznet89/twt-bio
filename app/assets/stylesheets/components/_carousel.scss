@@ -1,7 +1,35 @@
-.carousel-item img {
-  object-fit: cover;
-  object-position: center;
-  height: 50vh;
-  overflow: hidden;
-  border-radius: 15px;
+.carousel-item {
+  .nft-image {
+    object-fit: cover;
+    object-position: center;
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+  }
+
+  a {
+  text-decoration: none;
+  position: absolute;
+  top: 22px;
+  color: #FF0055;
+  font-weight: bold;
+  left: 50px;
+  padding: 0 15px;
+  /* border: 1px solid #FF0055; */
+  /* border-radius: 15px; */
+  transition: 0.3s;
+  }
+
+  a:hover {
+    // border-bottom: 3px inset #31F7C8;
+    text-decoration: underline solid #31F7C8;
+    padding: 0 15px;
+
+  }
+
+  .avatar {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+  }
 }
