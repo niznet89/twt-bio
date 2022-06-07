@@ -10,7 +10,7 @@
         <div class="mb-3">
           <%= profile_photo(@user)%>
         </div>
-        <h2><%= @user.username%></h2>
+        <h2 class="mb-3"><%= @user.username%></h2>
         <p id="hidden" hidden><%= @user.eth_checksum %></p>
         <div class="profile mt-3 mb-5">
           <p><%= @user.description %></p>
@@ -31,19 +31,8 @@
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Next</span>
               </button>
-
-
-
-
-
             </div>
           </div>
-
-
-
-
-
-
         <% end %>
         <!-- END OF NFT SECTION -->
 
