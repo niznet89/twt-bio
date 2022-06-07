@@ -6,28 +6,23 @@
 <section class="block">
   <div class="container">
     <div class="row text-center">
-      <div class="col-lg-8 mx-auto">
-        <div class="mb-5">
-          <%# <%= profile_photo(@user)%>
-          <%= profile_photo(@user) %>
+      <div class="col-lg-4 mx-auto">
+        <div class="mb-3">
+          <%= profile_photo(@user)%>
         </div>
         <h2 class="mb-3"><%= @user.username%></h2>
         <p id="hidden" hidden><%= @user.eth_checksum %></p>
-        <div class="profile mb-5">
+        <div class="profile mt-3 mb-5">
           <p><%= @user.description %></p>
         </div>
         <!-- Will display the NFT links that the user inputted as part of the widgets form -->
         <% if @widget.nfts%>
-          <p>
-            <a class="btn btn-outline-secondary w-100 mb-3" data-bs-toggle="collapse" href="#collapseNFT" role="button" aria-expanded="false" aria-controls="collapseNFT">
-            Digital Assets (NFT's) ⬇
-            </a>
-          </p>
+          <a class="btn btn-outline-secondary w-100 mb-4" data-bs-toggle="collapse" href="#collapseNFT" role="button" aria-expanded="false" aria-controls="collapseNFT">
+            Digital Assets (NFT's) <i class="fa-solid fa-arrow-down"></i></a>
           <div class="collapse" id="collapseNFT">
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
               <div class="carousel-inner" id="nfts">
               </div>
-
               <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Previous</span>
@@ -42,61 +37,55 @@
         <!-- END OF NFT SECTION -->
 
         <!-- Will display the Mirror blog links that the user inputted as part of the widgets form -->
-
-          <% if @widget.mirror  %>
-            <p>
-              <a class="btn btn-outline-secondary w-100 mb-3" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                Mirror.xyz posts ⬇
-              </a>
-            </p>
-        <div class="collapse" id="collapseExample">
+        <% if @widget.mirror  %>
+            <a class="btn btn-outline-secondary w-100 mb-4" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+              Mirror.xyz posts <i class="fa-solid fa-arrow-down"></i>
+            </a>
+          <div class="collapse" id="collapseExample">
             <% if @mirror %>
               <% @mirror[:url].each_with_index do |element, index| %>
                 <div>
-                  <a href=<%= element %> class="btn btn-link w-100 mb-3" target="_blank"><%= @mirror[:title][index] %></a>
+                  <a href=<%= element %> class="btn btn-outline-secondary w-100 mb-4" target="_blank"><%= @mirror[:title][index] %></a>
                 </div>
               <% end %>
             <% end %>
           <% end %>
         </div>
-         <!-- END OF MIRROR SECTION -->
+        <!-- END OF MIRROR SECTION -->
 
         <!-- NOT CURRENTLY RENDERING THE CORRECT LINK - Will display the project links that the user inputted as part of the projects form -->
         <% if @widget.projects %>
           <% @user.projects.each do |project|%>
-            <a href="<%= project.url %>" class="btn btn-outline-secondary w-100 mb-3" target="_blank"><%= project[:name] %> </a>
-
+            <a href="<%= project.url %>" class="btn btn-outline-secondary w-100 mb-4" target="_blank"><%= project[:name] %> </a>
           <% end %>
         <% end %>
-
         <!-- END OF PROJECTS SECTION -->
-                <hr>
-
-      <!-- Will display the social links that the user inputted as part of the socials form -->
+        <!-- Will display the social links that the user inputted as part of the socials form -->
+        <hr>
         <div class="social-links d-flex justify-content-center">
           <% if @social.instagram != ""  %>
             <a href="<%=@social.instagram %>">
-              <i class="fa-brands fa-instagram fa-2x p-2"></i>
+              <i class="fa-brands fa-instagram fa-2x p-3"></i>
             </a>
           <% end %>
           <% if @social.github != "" %>
             <a href="<%=@social.github %>">
-              <i class="fa-brands fa-github fa-2x p-2"></i>
+              <i class="fa-brands fa-github fa-2x p-3"></i>
             </a>
           <% end %>
           <% if @social.tiktok != "" %>
             <a href="<%=@social.tiktok %>">
-              <i class="fa-brands fa-tiktok fa-2x p-2"></i>
+              <i class="fa-brands fa-tiktok fa-2x p-3"></i>
             </a>
           <% end %>
           <% if @social.facebook != "" %>
             <a href="<%=@social.facebook %>">
-              <i class="fa-brands fa-facebook fa-2x p-2"></i>
+              <i class="fa-brands fa-facebook fa-2x p-3"></i>
             </a>
           <% end %>
           <% if @social.medium != "" %>
             <a href="<%=@social.medium %>">
-              <i class="fa-brands fa-medium fa-2x p-2"></i>
+              <i class="fa-brands fa-medium fa-2x p-3"></i>
             </a>
           <% end %>
         </div>
