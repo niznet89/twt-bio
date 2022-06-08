@@ -10,7 +10,9 @@
       <p class="text-center">Upload a profile photo then select the widgets you want included in your profile below.</p>
       <!-- User can upload new image, or use the default -->
       <%# <div class="text-center"> %>
+      <div class="text-center">
         <%= profile_photo(@user)%>
+        </div>
         <%= simple_form_for(@user) do |f| %>
           <%= f.input :photo, as: :file, label: "Input image" %>
           <%= f.input :description, label: 'Profile bio', hint: 'Can not be longer than 200 characters' %>

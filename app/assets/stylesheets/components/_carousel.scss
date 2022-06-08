@@ -8,19 +8,18 @@
   }
 
   a {
-  text-decoration: none;
-  position: absolute;
-  margin-left: 15px;
-  top: 22px;
-  color: #FF0055;
-  font-weight: bold;
-  left: 50px;
-  transition: 0.3s;
+    text-decoration: none;
+    position: absolute;
+    margin-left: 15px;
+    top: 22px;
+    left: 50px;
+    color: $white;
+    transition: 0.3s;
   }
 
   a:hover {
     border-bottom: 3px solid $green-primary;
-
+    color: $light-gray;
   }
 
   .avatar {
