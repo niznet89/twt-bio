@@ -9,77 +9,52 @@
       <h2>Welcome to your profile <%= @user.username %></h2>
       <p class="text-center">Upload a profile photo then select the widgets you want included in your profile below.</p>
       <!-- User can upload new image, or use the default -->
-      <div class="text-center">
-      <%= profile_photo(@user)%>
-<<<<<<< HEAD
-      <%= simple_form_for(@user) do |f| %>
-        <%= f.input :photo, as: :file, label: "Input image" %>
-        <%= f.input :description, label: 'Profile bio', hint: 'Can not be longer than 200 characters' %>
-        <%= f.submit "Change profile photo", class: "btn btn-primary w-100" %>
-      <% end %>
-      <hr>
-      <h3>Connect a widget</h3>
-      <p>This is a section caption.</p>
-=======
-      </div>
-
-      <%= simple_form_for(@user) do |f| %>
-        <%= f.input :photo, as: :file, label: "Upload profile photo" %>
-          <%= f.input :description, label: 'Profile bio', hint: 'Bio cannot be longer than 200 characters' %>
-          <%= f.button :submit, "Submit", class: "btn btn-outline-secondary w-100" %>
-      <% end %>
-      <hr>
-      <h3 class="mt-4">Connect a widget</h3>
-      <figcaption class="mb-4">Toggle on/off to show each app on your profile page</figcaption>
->>>>>>> 6986d8c66530a172f60a2748257b7c7ace44786f
-      <%= simple_form_for(@widget) do |f| %>
-      <div class="widget">
-        <%= f.input :mirror %>
-        <%= f.input :nfts %>
-        <%= f.input :projects %>
-        <%= f.submit "Save", class: "btn btn-outline-secondary mb-3" %>
-      </div>
-      <% end %>
-      <hr>
-      <!-- Projects are seperate objects, unlike Widgets which come grouped together -->
-<<<<<<< HEAD
+      <%# <div class="text-center"> %>
+        <%= profile_photo(@user)%>
+        <%= simple_form_for(@user) do |f| %>
+          <%= f.input :photo, as: :file, label: "Input image" %>
+          <%= f.input :description, label: 'Profile bio', hint: 'Can not be longer than 200 characters' %>
+          <%= f.submit "Change profile photo", class: "btn btn-primary w-100" %>
+        <% end %>
+        <hr>
+        <h3>Connect a widget</h3>
+        <p>This is a section caption.</p>
+        <%= simple_form_for(@widget) do |f| %>
+          <div class="widget">
+            <%= f.input :mirror %>
+            <%= f.input :nfts %>
+            <%= f.input :projects %>
+            <%= f.submit "Save", class: "btn btn-outline-secondary mb-3" %>
+          </div>
+        <% end %>
+        <hr>
+        <!-- Projects are seperate objects, unlike Widgets which come grouped together -->
       <h3>Add a project/link</h3>
-      <p>This is a section caption.</p>
-      <%= simple_form_for(@project) do |f| %>
-        <%= f.input :name %>
-        <%= f.input :description, hint: "Can not be longer then 100 characters" %>
-        <%= f.input :url, hint: "Must include full URL's eg. https://www.github.com/YOUR_USERNAME" %>
-        <%= f.submit "Save", class: "btn btn-outline-secondary w-100" %>
+        <p>This is a section caption.</p>
+        <%= simple_form_for(@project) do |f| %>
+          <%= f.input :name %>
+          <%= f.input :description, hint: "Can not be longer then 100 characters" %>
+          <%= f.input :url, hint: "Must include full URL's eg. https://www.github.com/YOUR_USERNAME" %>
+          <%= f.submit "Save", class: "btn btn-outline-secondary w-100" %>
+        <% end %>
         <hr>
-      <% end %>
-      <h3>Add your social accounts</h3>
-      <p>This is a section caption.</p>
-=======
-      <h3 class="my-4">Add a project/link</h3>
-      <%= simple_form_for(@project) do |f| %>
-        <%= f.input :name %>
-        <%= f.input :description, hint: "Cannot be longer then 100 characters" %>
-        <%= f.input :url, hint: "Must include full URLs eg. https://www.github.com/YOUR_USERNAME" %>
-        <%= f.submit "Save", class: "btn btn-outline-secondary w-100" %>
+        <h3>Add your social accounts</h3>
+        <p>This is a section caption.</p>
+        <!-- User can determine which socials they'd like on their profile page, when they input a url the icon will show -->
+        <!-- Will need to let user know that they need to submit the full url, (https://) included -->
+        <%= simple_form_for(@social) do |f| %>
+          <%= f.input :facebook %>
+          <%= f.input :instagram %>
+          <%= f.input :github %>
+          <%= f.input :tiktok %>
+          <%= f.input :medium %>
+          <%= f.submit "Save", class: "btn btn-outline-secondary w-100" %>
+        <% end %>
         <hr>
-      <% end %>
-      <h3 class="my-4">Add your social accounts</h3>
->>>>>>> 6986d8c66530a172f60a2748257b7c7ace44786f
-      <!-- User can determine which socials they'd like on their profile page, when they input a url the icon will show -->
-      <!-- Will need to let user know that they need to submit the full url, (https://) included -->
-      <%= simple_form_for(@social) do |f| %>
-        <%= f.input :facebook %>
-        <%= f.input :instagram %>
-        <%= f.input :github %>
-        <%= f.input :tiktok %>
-        <%= f.input :medium %>
-        <%= f.submit "Save", class: "btn btn-outline-secondary w-100" %>
-      <% end %>
-      <!-- User chooses which Widgets are shown on profile page. State is maintained in DB. -->
-      <hr>
-      <!-- Link to view profile -->
-      <a href="<%= user_show_path(@user) %>" class="btn btn-outline-secondary w-100" role="button" aria-pressed="true">View your profile</a>
-      <p id="hidden" hidden><%= @user.eth_address %></p>
+        <!-- Link to view profile -->
+        <a href="<%= user_show_path(@user) %>" class="btn btn-outline-secondary w-100" role="button" aria-pressed="true">View your profile</a>
+        <p id="hidden" hidden><%= @user.eth_address %></p>
+      <%# </div> %>
     </div>
   </div>
 </div>
