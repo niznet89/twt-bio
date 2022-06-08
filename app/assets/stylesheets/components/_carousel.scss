@@ -1,7 +1,32 @@
-.carousel-item img {
-  object-fit: cover;
-  object-position: center;
-  height: 50vh;
-  overflow: hidden;
-  border-radius: 15px;
+.carousel-item {
+  .nft-image {
+    object-fit: cover;
+    object-position: center;
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+  }
+
+  a {
+  text-decoration: none;
+  position: absolute;
+  margin-left: 15px;
+  top: 22px;
+  color: #FF0055;
+  font-weight: bold;
+  left: 50px;
+  transition: 0.3s;
+  }
+
+  a:hover {
+    border-bottom: 3px solid $green-primary;
+
+  }
+
+  .avatar {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    border: 2px solid $white;
+  }
 }

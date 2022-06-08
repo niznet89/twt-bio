@@ -20,6 +20,8 @@ fetch(url, {
   .then((json) => json.assets.forEach(nft => {
     document.getElementById("nfts").insertAdjacentHTML('beforeend', `
      <div class="carousel-item ${nft === json.assets[0] ? 'active' : ''}">
-      <img class="rounded mx-auto d-block mb-3" src="${nft.image_url}">
+      <img class="nft-image rounded mx-auto d-block mb-3" src="${nft.image_url}">
+      <div class="d-flex flex start"><a href="${nft.permalink}" target="_blank">${nft.name}</a> <img class="avatar mx-auto d-block mb-3" src="${nft.creator.profile_img_url}">
+      </div>
      </div>`)
   }) );
