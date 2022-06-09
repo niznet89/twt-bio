@@ -41,7 +41,7 @@
         <% end %>
         <h4>List of projects / links</h4>
         <% @user.projects.each do |project|%>
-          <p><b><%= project[:name] %></b> -- <%= project.description %> <%= link_to 'Delete', delete_service_path(service), class: 'btn btn-dark rounded-pill', method: :delete, data: { confirm: "Are you sure?" } %></p>
+          <p><b><%= project[:name] %></b> -- <%= project.description %> <%= link_to 'Delete', project_path(project), class: 'btn btn-outline-danger rounded-pill btn-sm', method: :delete, data: { confirm: "Are you sure?" } %></p>
         <% end %>
         <hr>
         <h3>Add your social accounts</h3>

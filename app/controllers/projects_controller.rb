@@ -10,6 +10,13 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def destroy
+    @project = Project.find(params[:id])
+    @user = @project.user
+    @project.destroy
+    redirect_to edit_user_path(@user)
+  end
+
   private
 
   def project_params
