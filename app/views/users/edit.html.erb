@@ -6,60 +6,70 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-lg-6">
-      <h2>Welcome to your profile <%= @user.username %></h2>
-      <p class="text-center">Upload a profile photo then select the widgets you want included in your profile below.</p>
-      <!-- User can upload new image, or use the default -->
-      <%# <div class="text-center"> %>
       <div class="text-center">
+      <%# <h2>Welcome to your profile <%= @user.username %>
+            <h2>Customize your profile</h2>
+      <p class="text-center">Upload a profile photo then select the content you want to showcase from <a href="https://mirror.xyz/" target="_blank">Mirror.xyz</a>, <a href="https://opensea.io/" target="_blank">Opensea.io</a> and any other web3 projects using the form below.</p>
+      <!-- User can upload new image, or use the default -->
         <%= profile_photo(@user)%>
-        </div>
-        <%= simple_form_for(@user) do |f| %>
-          <%= f.input :photo, as: :file, label: "Input image" %>
-          <%= f.input :description, label: 'Profile bio', hint: 'Can not be longer than 200 characters' %>
-          <%= f.submit "Change profile photo", class: "btn btn-primary w-100" %>
-        <% end %>
-        <hr>
-        <h3>Connect a widget</h3>
-        <p>This is a section caption.</p>
-        <%= simple_form_for(@widget) do |f| %>
-          <div class="widget">
+      </div>
+      <%= simple_form_for(@user) do |f| %>
+        <%= f.input :photo, as: :file, label: "Input image" %>
+        <%= f.input :description, label: 'Profile bio', hint: 'Cannot be longer than 200 characters' %>
+        <%= f.submit "Update profile photo and bio", class: "btn btn-primary w-100" %>
+      <% end %>
+      <hr>
+      <h4>Connect a widget</h4>
+      <%= simple_form_for(@widget) do |f| %>
+        <div class="widget">
             <%= f.input :mirror %>
             <%= f.input :nfts %>
             <%= f.input :projects %>
-            <%= f.submit "Save", class: "btn btn-outline-secondary mb-3" %>
+          <%= f.submit "Save", class: "btn btn-outline-secondary my-3" %>
+        </div>
+      <% end %>
+      <!-- Projects are seperate objects, unlike Widgets which come grouped together -->
+      <%= simple_form_for(@project) do |f| %>
+      <hr>
+        <h4>Add a custom project</h4>
+        <%= f.input :name %>
+        <%= f.input :description, hint: "Cannot be longer then 100 characters" %>
+        <%= f.input :url, hint: "URLs must begin with https" %>
+        <%= f.submit "Save", class: "btn btn-outline-secondary w-100" %>
+      <% end %>
+      <hr>
+      <h4>List of custom projects</h4>
+      <% @user.projects.each do |project|%>
+        <div class="my-3">
+          <div class="d-flex justify-content-between">
+            <div><%= project[:name] %><br>
+              <%= project.description %></div>
+            <div><%= link_to 'Delete', project_path(project), class: 'btn btn-outline-danger btn pt-3', method: :delete, data: { confirm: "Are you sure?" } %></div>
           </div>
-        <% end %>
-        <hr>
-        <!-- Projects are seperate objects, unlike Widgets which come grouped together -->
-      <h3>Add a project/link</h3>
-        <p>This is a section caption.</p>
-        <%= simple_form_for(@project) do |f| %>
-          <%= f.input :name %>
-          <%= f.input :description, hint: "Can not be longer then 100 characters" %>
-          <%= f.input :url, hint: "Must include full URL's eg. https://www.github.com/YOUR_USERNAME" %>
-          <%= f.submit "Save", class: "btn btn-outline-secondary w-100" %>
-        <% end %>
-        <h4>List of projects / links</h4>
-        <% @user.projects.each do |project|%>
-          <p><b><%= project[:name] %></b> -- <%= project.description %> <%= link_to 'Delete', project_path(project), class: 'btn btn-outline-danger rounded-pill btn-sm', method: :delete, data: { confirm: "Are you sure?" } %></p>
-        <% end %>
-        <hr>
-        <h3>Add your social accounts</h3>
-        <p>This is a section caption.</p>
-        <!-- User can determine which socials they'd like on their profile page, when they input a url the icon will show -->
-        <!-- Will need to let user know that they need to submit the full url, (https://) included -->
-        <%= simple_form_for(@social) do |f| %>
-          <%= f.input :facebook %>
-          <%= f.input :instagram %>
-          <%= f.input :github %>
-          <%= f.input :tiktok %>
-          <%= f.input :medium %>
-          <%= f.submit "Save", class: "btn btn-outline-secondary w-100" %>
-        <% end %>
-        <hr>
-        <!-- Link to view profile -->
-        <a href="<%= user_show_path(@user) %>" class="btn btn-outline-secondary w-100" role="button" aria-pressed="true">View your profile</a>
-        <p id="hidden" hidden><%= @user.eth_address %></p>
+        </div>
+      <% end %>
+      <hr>
+      <h4>Add your social accounts</h4>
+      <!-- User can determine which socials they'd like on their profile page, when they input a url the icon will show -->
+      <!-- Will need to let user know that they need to submit the full url, (https://) included -->
+      <%= simple_form_for(@social) do |f| %>
+        <%# <div class="form-check form-switch my-3">
+          <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" data-bs-toggle="collapse" href="#collaspeOne" aria-expanded="false" aria-controls="collaspeOne">
+          <label class="form-check-label" for="flexSwitchCheckDefault">Facebook</label>
+          <div class="collapse" id="collaspeOne"> %>
+            <%= f.input :facebook %>
+          <%# </div>
+        </div> %>
+            <%= f.input :instagram %>
+            <%= f.input :github %>
+            <%= f.input :tiktok %>
+            <%= f.input :medium %>
+        <%= f.submit "Save", class: "btn btn-outline-secondary w-100" %>
+      <% end %>
+      <hr>
+      <!-- Link to view profile -->
+      <a href="<%= user_show_path(@user) %>" class="btn btn-outline-secondary w-100" role="button" aria-pressed="true">View your profile</a>
+      <p id="hidden" hidden><%= @user.eth_address %></p>
       <%# </div> %>
     </div>
   </div>

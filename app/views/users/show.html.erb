@@ -45,7 +45,7 @@
             <% if @mirror %>
               <% @mirror[:url].each_with_index do |element, index| %>
                 <div>
-                  <a href=<%= element %> class="btn btn-outline-secondary w-100 mb-4" target="_blank"><%= @mirror[:title][index] %></a>
+                  <a href=<%= element %> class="btn btn-outline-light w-100 mb-4" target="_blank"><%= @mirror[:title][index] %></a>
                 </div>
               <% end %>
             <% end %>
