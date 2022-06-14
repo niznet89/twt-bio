@@ -29,24 +29,26 @@
         </div>
       <% end %>
       <!-- Projects are seperate objects, unlike Widgets which come grouped together -->
-      <%= simple_form_for(@project) do |f| %>
-      <hr>
-        <h4>Add a custom project</h4>
-        <%= f.input :name %>
-        <%= f.input :description, hint: "Cannot be longer then 100 characters" %>
-        <%= f.input :url, hint: "URLs must begin with https" %>
-        <%= f.submit "Save", class: "btn btn-outline-secondary w-100" %>
-      <% end %>
-      <hr>
-      <h4>List of custom projects</h4>
-      <% @user.projects.each do |project|%>
-        <div class="my-3">
-          <div class="d-flex justify-content-between">
-            <div><%= project[:name] %><br>
-              <%= project.description %></div>
-            <div><%= link_to 'Delete', project_path(project), class: 'btn btn-outline-danger btn pt-3', method: :delete, data: { confirm: "Are you sure?" } %></div>
+      <% if @widget.projects %>
+        <hr>
+        <%= simple_form_for(@project) do |f| %>
+          <h4>Add a custom project</h4>
+          <%= f.input :name %>
+          <%= f.input :description, hint: "Cannot be longer then 100 characters" %>
+          <%= f.input :url, hint: "URLs must begin with https" %>
+          <%= f.submit "Save", class: "btn btn-outline-secondary w-100" %>
+        <% end %>
+        <hr>
+        <h4>List of custom projects</h4>
+        <% @user.projects.each do |project|%>
+          <div class="my-3">
+            <div class="d-flex justify-content-between">
+              <div><%= project[:name] %><br>
+                <%= project.description %></div>
+              <div><%= link_to 'Delete', project_path(project), class: 'btn btn-outline-danger btn pt-3', method: :delete, data: { confirm: "Are you sure?" } %></div>
+            </div>
           </div>
-        </div>
+        <% end %>
       <% end %>
       <hr>
       <h4>Add your social accounts</h4>
