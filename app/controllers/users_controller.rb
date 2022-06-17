@@ -32,7 +32,7 @@ class UsersController < ApplicationController
           if @user.save
             # if user is created, congratulations, send them to login
 
-            redirect_to edit_user_path(@user), notice: "Successfully created an account, you may now log in."
+            redirect_to root_path, notice: "Successfully created an account, you may now log in."
           else
             flash[:error] = "You have already signed up."
             render :new
