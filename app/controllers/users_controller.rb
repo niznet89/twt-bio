@@ -116,9 +116,10 @@ class UsersController < ApplicationController
       html_doc = Nokogiri::HTML(html_file)
       url_hash = { url: [], title: [] }
 
-      html_doc.search(".bc5nci4rz").each_with_index do |element, index|
-        url_hash[:url].append("https://mirror.xyz#{element.children[1].children[0].attributes["href"].value}")
-        url_hash[:title].append(element.children[1].children[0].children.children[0].text)
+      html_doc.search(".bc5nci4pq").each_with_index do |element, index|
+
+        url_hash[:url].append("https://mirror.xyz#{element.children[0].attributes["href"].value}")
+        url_hash[:title].append(element.children.children.children[0].text)
       end
       url_hash
     end
