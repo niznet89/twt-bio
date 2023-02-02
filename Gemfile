@@ -30,6 +30,8 @@ gem 'open-uri'
 
 gem 'eth', '~> 0.5.1'
 
+gem 'rbsecp256k1', '~> 5.0', '>= 5.0.1'
+
 gem 'dotenv-rails', groups: [:development, :test]
 
 gem 'onebox', '~> 2.2', '>= 2.2.19'
