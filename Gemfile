@@ -28,6 +28,8 @@ gem 'simple_form', github: 'heartcombo/simple_form'
 
 gem 'open-uri'
 
+gem 'secp256k1'
+
 gem 'rbsecp256k1'
 
 gem 'mini_portile2', '~> 2.8', '>= 2.8.1'
