@@ -28,11 +28,15 @@ gem 'simple_form', github: 'heartcombo/simple_form'
 
 gem 'open-uri'
 
-gem 'eth', '~> 0.5.1'
-
 gem 'rbsecp256k1'
 
 gem 'mini_portile2', '~> 2.8', '>= 2.8.1'
+
+gem 'eth'
+
+
+
+
 
 gem 'dotenv-rails', groups: [:development, :test]
 
