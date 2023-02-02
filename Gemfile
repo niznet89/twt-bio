@@ -28,7 +28,7 @@ gem 'simple_form', github: 'heartcombo/simple_form'
 
 gem 'open-uri'
 
-gem "eth"
+gem 'eth', '~> 0.5.1'
 
 gem 'dotenv-rails', groups: [:development, :test]
 
